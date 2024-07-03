@@ -54,4 +54,4 @@ To run the React application you have, follow these steps:
     ```
     This will create an optimized production build of your React application in the `build` directory.
 
-Based on the contents of your `package.json`, these steps should work for your project setup [[❞]](file-service://file-tzaTEBFV8Yq2KOiDVuORsGj2). If you encounter any issues, refer to the `README.md` file for any additional instructions or troubleshooting steps specific to your project.
+Based on the contents of your `package.json`, these steps should work for your project setup [[❞]](file-service://file-tzaTEBFV8Yq2KOiDVuORsGj2).
