@@ -47,11 +47,3 @@ To run the React application you have, follow these steps:
     npm start
     ```
     This will run the `start` script defined in your `package.json` file, which uses `react-scripts` to start the server. The application should open in your default web browser at `http://localhost:3000`.
-
-5. **Build the project** (optional): If you want to build the project for production, you can use:
-    ```sh
-    npm run build
-    ```
-    This will create an optimized production build of your React application in the `build` directory.
-
-Based on the contents of your `package.json`, these steps should work for your project setup [[❞]](file-service://file-tzaTEBFV8Yq2KOiDVuORsGj2).
