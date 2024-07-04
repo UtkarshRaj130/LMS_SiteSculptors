@@ -1,0 +1,60 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; /*to ensure the header is on top of the modal */
+    background-color: #333;
+    color: #fff;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:50px;
+  }
+  .option{
+    color:white;
+    font-size: 20px;
+    margin-right:5rem;
+  }
+  
+  .logo-nav {
+    /* text-align: center; */
+    /* margin: 20px;; */
+    font-size:100%;
+    font-weight: bold;
+    /* margin-left:5rem; */
+  }
+
+  .logo-nav{
+    font-size: 100%;
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-right ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav-right li {
+    margin-right: 2rem;
+  }
+  
+  .nav-right a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .nav-right a:hover {
+    color: #ccc;
+  }
+
+  .box:hover{
+    text-decoration:underline;
+  }
