@@ -1,55 +1,41 @@
-import { React, useState } from 'react'
-import './Header.css'
+import React from 'react';
+import { useState } from 'react'
+import { Link } from 'react-router-dom';
+import '../Styles/Header.css';
 
 function Header() {
- 
-const [menutoggle, setMenutoggle] = useState(false)
+    const [menuToggle, setMenuToggle] = useState(false);
 
-// const Toggle = () => {
-//     setMenutoggle(!menutoggle)
-// }
+  // const toggleMenu = () => {
+  //   setMenuToggle(!menuToggle);
+  // };
 
-const closeMenu = () => {
-    setMenutoggle(false)
-}
-
-
-return (
+  const closeMenu = () => {
+    setMenuToggle(false);
+  };
+  return (
     <div className="header">
-    <div className="logo-nav">
-    <a href='/'>
-        <a href="/home">LIBRARY</a>
-    </a>
-    </div>
-    <div className='nav-right'>
-        <input className='search-input' type='text' placeholder='Search here for Books...'/>
-        <ul className={menutoggle ? "nav-options active" : "nav-options"}>
-            <li className="option" onClick={() => {closeMenu()}}>
-                <a href='/'>
-                    <a href="/home">Home</a>
-                </a>
-            </li>
-            <li className="option" onClick={() => {closeMenu()}}>
-                <a href='/books'>
-                <a href="/books">Books</a>
-                </a>
-            </li>
-            <li className="option" onClick={() => {closeMenu()}}>
-                <a href='/signin'>
-                <a href='/signin'>SignIn</a>
-                </a>
-            </li>
+      <div className="logo-nav">
+        <h1>LIBRARY</h1>
+      </div>
+      <div className="nav-right">
+        <ul className={menuToggle? "nav-options active" : "nav-options"}>
+          <li className="option box " onClick={closeMenu}>
+            <Link to="/student-login">Student Login</Link>
+          </li>
+          <li className="option box" onClick={closeMenu}>
+            <Link to="/admin-login">Admin Login</Link>
+          </li>
         </ul>
+        {/* <button className="menu-toggle" onClick={toggleMenu}>
+          {menuToggle? 'Close' : 'Menu'}
+        </button> */}
+      </div>
     </div>
-    <hr style={{color:"white"}}/>
-    </div>
+    
+    
 
-)
-  
-
-   
-
-   
+  );
 }
 
-export default Header
+export default Header;
