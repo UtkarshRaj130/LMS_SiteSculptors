@@ -2,7 +2,7 @@
 
 .about-box{
     /* margin-top:0px; */
-    background-color: rgb(9, 54, 60);
+    background-color: blueviolet;
     height:600px;
 }
 
@@ -25,7 +25,7 @@
 /* Desktop View */
 .about-title{
     position: relative;
-    color: rgb(121, 202, 151);
+    color: white;
     text-align: center;
     font-size: 32px;
     padding: 25px;

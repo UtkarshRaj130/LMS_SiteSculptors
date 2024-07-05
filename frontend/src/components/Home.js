@@ -8,6 +8,7 @@ function Home() {
     <div>
     <Header/>
     <ImgSlide/>
+    <hr className="divider" />
     <About/>
 
     </div>
