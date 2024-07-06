@@ -29,12 +29,12 @@
 }
 
 .logo img{
-  height:40px; /* adjust the height of the logo */
-  width: auto; /* adjust the width of the logo */
-  margin-right: 10px; /* add some margin to separate the logo from the nav */
+  height:60px; /* adjust the height of the logo */
+  max-width:120px; /* adjust the width of the logo */
+  margin-right: 0 10px; /* add some margin to separate the logo from the nav */
   /* add the new logo image */
-  background-size: cover;
-  background-position: center;
+  /* background-size: cover;
+  background-position: center; */
   /* background-color: #a1661d; */
 
 }
@@ -131,6 +131,11 @@ a{
 .mobile-menu{
   display: block;
 }
+@media (max-width: 480px) {
+  .logo img {
+     height: 20px; /* reduce logo height on even smaller screens */
+   }
+ }
 
 /* Nav Options are given in this to make the search input as big as possible */
 
@@ -141,6 +146,9 @@ a{
   .header{
       display: grid;
       grid-template-columns: 10% 60%;
+  }
+  .logo img {
+    height: 30px; /* reduce logo height on smaller screens */
   }
 }
 
