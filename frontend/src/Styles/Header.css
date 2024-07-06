@@ -1,0 +1,200 @@
+*{
+  text-shadow: black;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color:#cf8122;
+  /* background-color: white; */
+  box-shadow: 0 1px 4px rgba(146,161,176,.15);
+  top: 0%;
+  border: 2px solid #6c1b85ff;
+  /* border-radius: 15%; */
+}
+
+
+.logo-nav-new {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.logo img{
+  height:60px; /* adjust the height of the logo */
+  max-width:120px; /* adjust the width of the logo */
+  margin-right: 0 10px; /* add some margin to separate the logo from the nav */
+  /* add the new logo image */
+  /* background-size: cover;
+  background-position: center; */
+  /* background-color: #a1661d; */
+
+}
+
+.logo-nav-new h1 {
+  font-size: 24px;
+  color: rgb(250, 240, 253);
+  /* color:#6c1b85ff; */
+  margin: 0;
+  /* font-weight: 800; */
+   /* add some margin to separate the logo from the heading */
+}
+.nav-right{
+  margin-left: 0;
+  width:100%;
+
+}
+.search-input::placeholder {
+  color: white;
+  /* color:#6c1b85ff; */
+
+}
+.search button{
+  height:100%;
+  width:20%;
+}
+.search-input{
+  margin-top:5px;
+  width: 100%;
+  margin-left: 15px;
+  max-width: 1800px;
+  height: 40px;
+  outline: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 1px solid #6c1b85ff;
+  color:rgb(17, 16, 16);
+}
+.search-input:hover{
+  /* border:2px solid rgb(33, 6, 41) */
+  border: 2px solid #6c1b85ff;
+}
+.nav-options{
+  padding-left: 25px;
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 15px!important;
+  color:#6c1b85ff;
+}
+
+.nav-right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 40px;
+  margin-top: 15px;
+  color:#6c1b85ff;
+}
+
+.option a{
+  color:rgb(246, 244, 247);
+  /* color:#6c1b85ff; */
+  
+
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.option a:hover{
+  /* color: wheat; */
+  transition: all ease 0.5s;
+  text-decoration: underline;
+  /* color:#6c1b85ff */
+  text-decoration-color:#6c1b85ff ;
+}
+
+a{
+  text-decoration: none!important;
+}
+
+.option:hover{
+  color: rgb(6, 240, 170);
+}
+
+.mobile-menu{
+  display: block;
+}
+@media (max-width: 480px) {
+  .logo img {
+     height: 20px; /* reduce logo height on even smaller screens */
+   }
+ }
+
+/* Nav Options are given in this to make the search input as big as possible */
+
+@media (min-width: 768px){
+  .mobile-menu{
+      display: none!important;
+  }
+  .header{
+      display: grid;
+      grid-template-columns: 10% 60%;
+  }
+  .logo img {
+    height: 30px; /* reduce logo height on smaller screens */
+  }
+}
+
+@media (max-width: 768px){
+  /*Mobile View */
+  .header{
+      padding: 0px 10px;
+  }
+  .nav-options{
+      display: flex;
+      width: 100%;
+      height: 280px;
+      position: absolute;
+      top: 60px;
+      left: -100%;
+      opacity: 0;
+      transition: all 0.5s ease;
+      flex-direction: column;
+      list-style-type: none;
+      grid-gap: 0px;
+  }
+  .nav-options.active{
+      background: black;
+      left: 0;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: 100;
+      align-content: center;
+      padding-left: 0px;
+  }
+
+  .menu-icon{
+      width: 45px;
+      height: 45px;
+      color: rgb(233,83,75);
+      padding: 2px;
+      background-color: rgb(246, 233, 202);
+      border-radius: 5px;
+      cursor: pointer;
+      margin:0px 5px 0px 10px;
+  }
+  .option{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 10vw;
+      padding: 30px 0px;
+  }
+}  
