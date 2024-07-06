@@ -1,55 +1,103 @@
+
+*h1{
+  color:green;
+}
+
 .main{
-   padding-top:30px;
-    width:100%;
-    display:flex;
-    max-height:70vh;
-    justify-content: center;
-    align-items: center;
-    align-content:center;
-    align-self: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    /* background-image: url("image1.jpg"); */
-    /* background-size: cover; */
-    background-color: rgb(38, 117, 128);;
-   
+  padding-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 70vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: rgb(131, 79, 147);
+  /* gap: 10px; add a small gap between images */
 
    }
    
-  img {
-    height:55%;
-    width:20%;
-    border-radius: 10px; /*  slightly rounded corners */
-    /* transform: perspective(400px) rotateY(10deg); */
-    transform:translateZ(-200px) scale(0.8);
-    transition: 0.5s; /* smooth transition */
-    cursor: pointer; /* change cursor on hover */
-  }
-  
-  img:hover {
-    transform: translateX(-10px) rotateY(-10deg)scale(1);
-     /* move and rotate on hover */
-     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  }
-  
-  
-  /* .main img {
-    position: relative;
-    top: 0;
+  .parallax {
+    /* margin-left:5%; */
+  /* flex: 1; make all divs equal width */
+  height: 50%;
+  width:17%;
+  margin: 0px ;/* add some margin for spacing */
+  cursor: pointer; /* change cursor on hover */
+  background-size: cover;
+  transition: 0.5s;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* clip-path: inset(0 0 0 0 round 10px); */
+    transform: perspective(400px) rotateY(0deg);
     transition: 0.5s;
   }
+  .parallax img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* make image cover the entire div */
+    /* add transition for smooth effect */
+    /* /* clip-path: inset(0 0 0 0 round 10px); */
+    transform: perspective(400px) rotateY(0deg);
+    transition: 0.5s;
+    cursor: pointer;
+    margin: 0;
+    padding:0 ;
+    border:0;
+    opacity:0.85;
+    border-radius: 10%;
+    
+    
   
   
-  
-  /* Add a smooth scrolling effect */
-  /* .main {
-    scroll-snap-type: y mandatory;
   }
-  
-  .main img {
-    scroll-snap-align: start;
-  } */ 
+.library-status {
+  position: absolute;
+  /* width:50%; */
+  /* top: 50%; */
+  right: 30%;
+  bottom:5%;
+  left:30%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color:rgb(132, 224, 238);
+  /* font-weight: bold; */
+  z-index: 1; /* make sure it's on top of the image */
+  background-color: rgba(112, 110, 110, 0.5);
+}
 
+.library-status h3{
+  margin-top:0;
+  color:rgb(243, 244, 244);
+  }
+
+.library-status p{
+  color:yellow;
+
+}
+
+.login-text {
+  position: absolute;
+  /* top: 50%; */
+  left: 50%;
+  top:5%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  font-size: 10px;
+  /* font-weight: bold; */
+  z-index: 2;
+  /* background-color: rgba(112, 110, 110, 0.5); add a dark background to make the text more visible */
+  padding: 10px;
+}
+  .parallax img:hover {
+   
+     transform: perspective(400px) translateX(-10%) rotateY(-10deg);
+     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
 
   @media only screen and (max-width: 480px) {
     .main {

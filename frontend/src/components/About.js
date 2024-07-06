@@ -4,8 +4,10 @@ import '../Styles/About.css'
 
 function About() {
   return (
+
     
          <div className='about-box'>
+            {/* <hr  style={{color:'white',height:'2px'}}/> */}
             <h2 className="about-title">About the Library</h2>
             <div className="about-data">
                 <div className="about-img">

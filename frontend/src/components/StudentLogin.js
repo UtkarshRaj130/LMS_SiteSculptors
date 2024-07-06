@@ -42,7 +42,7 @@ function StudentLogin() {
     <button type='submit'>Login</button>
     {error && <div style={{ color: 'red' }}>{error}</div>}
     <button type='button' onClick={handleNotSignedIn}> Sign up!</button>
-    <button className='close-modal' onClick={() => navigate(-1)}>close page</button>
+    <button className='close-modal' onClick={() => navigate(-1)}>Close</button>
 
     </form>
 

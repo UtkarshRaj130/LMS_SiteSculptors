@@ -1,58 +1,78 @@
-import React from 'react'
+// import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import '../Styles/ImgSlide.css'
 
 
 function ImgSlide() {
+  const [libraryStatus, setLibraryStatus] = useState('');
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate('/student-login');
+  }
+  useEffect(() => {
+    const currentTime = new Date().getHours();
+    // const isOpen = currentTime >= 9 && currentTime <= 18; // 9am to 6pm
+
+    if (currentTime >= 9 && currentTime <= 18) {
+      setLibraryStatus('Library is open');
+    } else {
+      setLibraryStatus('Library is closed');
+    }
+  }, [new Date().getHours()]);
+
   return (
     <div className="main">
-{/* //   <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
-//   <div className="carousel-inner">
-//     <div className="carousel-item active">
-//       <img src="https://plus.unsplash.com/premium_photo-1663127366913-8fa952ddc7af?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGJvb2t8ZW58MHx8MHx8fDA%3D" className="d-block w-100" alt="..." style={{height:700}}/>
-//     </div>
-//     <div className="carousel-item">
-//       <img src="https://images.unsplash.com/photo-1460518451285-97b6aa326961?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGdyb3VwJTIwc3R1ZHl8ZW58MHx8MHx8fDA%3D" className="d-block w-100" alt="..." style={{height:700}}/>
-//     </div>
-//     <div className="carousel-item">
-//       <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGlicmFyeXxlbnwwfHwwfHx8MA%3D%3D" className="d-block w-100" alt="..." style={{height:700}}/>
-//     </div>
-//   </div>
-//   <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-//     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-//     <span className="visually-hidden">Previous</span>
-//   </button>
-//   <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-//     <span className="carousel-control-next-icon" aria-hidden="true"></span>
-//     <span className="visually-hidden">Next</span>
-//   </button>
-// </div> */}
+
+<div className=' parallax'>
 
 <img
+src="https://images.unsplash.com/photo-1535957998253-26ae1ef29506?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d29ya3xlbnwwfHwwfHx8MA%3D%3D"
+
+alt="Library-Status"
+/>
+<div className="library-status">
+          <h3>LIBRARY STATUS:</h3>
+        <marquee>  <p>{libraryStatus}</p></marquee>
+        </div>
+</div>
+<div className='parallax'>
+<img className='parallax'
 src="https://images.unsplash.com/photo-1531988042231-d39a9cc12a9a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJvb2tzfGVufDB8fDB8fHww"
 alt="the back of random person"
 />
-<img className='parallax'
-src="https://images.unsplash.com/photo-1535957998253-26ae1ef29506?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d29ya3xlbnwwfHwwfHx8MA%3D%3D"
-alt="the back of random person"
-/>
-<img className='parallax'
+</div>
+<div className='parallax'>
+<img 
 src="https://images.unsplash.com/photo-1513128034602-7814ccaddd4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d29ya3xlbnwwfHwwfHx8MA%3D%3D"
 alt="an eagle"
-
 />
-<img className='parallax'
+</div>
+
+<div className='parallax '  onClick={handleLoginClick}>
+{/* <h3>Student-login</h3> */}
+  <div className='login-text'>
+      <p>click here to Student-login</p>
+  </div>
+<img
 src="https://images.unsplash.com/photo-1623461487986-9400110de28e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Z3JhZHVhdGlvbnxlbnwwfHwwfHx8MA%3D%3D"
-alt="a cup of something to drink, probably some tea"
+alt="student-login"
+// {/* /><div className='login'><h3>click to login</h3></div> */}
 />
+</div>
 
+
+<div className='parallax'>
 
  <img
 src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHVuaXZlcnNpdHklMjBzdHVkZW50fGVufDB8fDB8fHww"
 alt="a cup of something to drink, probably some tea"
 
 /> 
-    </div>    
-        
+</div>
+ </div>         
 
   )
 }
