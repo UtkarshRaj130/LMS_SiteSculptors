@@ -1,4 +1,4 @@
-import Book from '../models/Book.js';
+import Book from './Book.js';
 
 // Get all books
 const getBooks = async (req, res) => {
