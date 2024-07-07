@@ -26,3 +26,12 @@ if (process.env.NODE_ENV === 'production') {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT,()=> console.log(`Server running on port ${PORT}`));
+const uri = process.env.MONGODB_URI;
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log('MongoDB connected');
+}).catch((err) => {
+  console.error('MongoDB connection error:', err);
+});
