@@ -4,16 +4,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import StudentSignup from './components/StudentSignup';
 import Home from './components/Home';
 import StudentLogin from './components/StudentLogin';
-<<<<<<< HEAD
 import AdminLogin from './components/AdminLogin';
 import Modal from './components/Modal';
 import SearchBar from './components/SearchBar';
 import './App.css';
 // new modal component
-=======
-// import AdminLogin from './components/AdminLogin';
-import Modal from './components/Modal'; // new modal component
->>>>>>> 1a32463d5e4c6a5386620803dccd320ee9cc384f
 // import StudentDashboard from './components/StudentDashboard';
 // import About from './components/About';
 function App() {
