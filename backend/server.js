@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './db.js';
 import bookRoutes from './bookRoutes.js';
-
+import mongoose from 'mongoose';
 dotenv.config();
 
 connectDB();
