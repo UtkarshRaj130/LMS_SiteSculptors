@@ -1,6 +1,6 @@
 # LMS_SiteSculptors
 connection string - mongodb://localhost:27017/
-
+```
 High-level overview of the project structure:
 LMS_SiteSculptors/
 ├── backend/
@@ -27,7 +27,7 @@ LMS_SiteSculptors/
 │   └── .env
 ├── package.json
 └── README.md
-
+```
 To run the React application you have, follow these steps:
 
 1. **Install Node.js and npm**: Make sure you have Node.js and npm (Node Package Manager) installed on your system. You can download and install them from [nodejs.org](https://nodejs.org/).
