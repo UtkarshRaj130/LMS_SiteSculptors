@@ -1,0 +1,47 @@
+/* SearchResults.css */
+.search-results {
+    padding: 20px;
+    text-align: left; /* Align text to the left */
+    padding-top: 80px; /* Ensure content is visible below the fixed header */
+}
+
+.search-results h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px; /* Add space between the heading and the book list */
+}
+
+.book-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+}
+
+.book-item {
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.book-item:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+
+.book-title {
+    font-weight: bold; /* Make book title bold */
+    color: #6c1b85ff; /* Add color to the book title */
+}
+
+.book-author {
+    font-weight: bold; /* Make author name bold */
+    color: #a86007; /* Add color to the author name */
+}
+
+.search-results p {
+    font-size: 18px;
+    color: #666;
+}
