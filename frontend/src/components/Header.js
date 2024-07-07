@@ -2,13 +2,15 @@ import React from 'react';
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import '../Styles/Header.css';
-import logo from './image.png'
+import logo from './image.png';
+import axios from 'axios'; 
 
 function Header() {
   
 
-    const [menutoggle, setMenutoggle] = useState(false)
-
+    const [menutoggle, setMenutoggle] = useState(false);
+    const [searchQuery, setsearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState([]); 
     const Toggle = () => {
         setMenutoggle(!menutoggle)
     }
@@ -16,19 +18,39 @@ function Header() {
     const closeMenu = () => {
         setMenutoggle(false)
     }
+    
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        try {
+          const response = await axios.get(`https://your-backend-api.com/books/search?q=${searchQuery}`);
+          const searchResults = response.data;
+          setSearchResults(searchResults);
+        } catch (error) {
+          console.error(error);
+        }
+      };
 
     return (
       <div className="header">
       <div className="logo-nav-new" >
       <div className="logo">
-      <img src={logo} alt='iitdh logo '></img>
+      <img src={logo} alt='iitdh logo'></img>
         </div>
         <h1>LIBRARY</h1>
       </div>
       <div className='nav-right'>
+        {/* <form   className='search'> */}
+        
+      
+    
+        <div className='search' onSubmit={handleSearch} >
+          <input className='search-input' type='text' placeholder='Search a Book' value={searchQuery}
+            onChange={(e) => setsearchQuery(e.target.value)}/>
+          <button type="button" onClick={handleSearch}>Search</button>
+          </div>
+        
        
-          <input className='search-input' type='text' placeholder='Search a Book'/>
-          
+        {/* </form> */}
           
 
           <ul className={menutoggle ? "nav-options active" : "nav-options"}>
