@@ -1,35 +1,13 @@
-
-// import React from 'react';
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-// import Home from './components/Home';
-// import StudentLogin from './components/StudentLogin';
-// import AdminLogin from './components/AdminLogin';
-
-// function App() {
-//   return (
-//     <BrowserRouter>
-     
-//       <Home/>
-//       <Routes>
-//         {/* <Route path="/" element={<Home />} /> */}
-//         <Route path="/student-login" element={<StudentLogin />} />
-//         <Route path="/admin-login" element={<AdminLogin />} />
-//       </Routes>
-//     </BrowserRouter>
-
-   
-//   );
-// }
-
-// export default App;
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import StudentSignup from './components/StudentSignup';
 import Home from './components/Home';
 import StudentLogin from './components/StudentLogin';
 import AdminLogin from './components/AdminLogin';
-import Modal from './components/Modal'; // new modal component
+import Modal from './components/Modal';
+import SearchBar from './components/SearchBar';
+import './App.css';
+// new modal component
 // import StudentDashboard from './components/StudentDashboard';
 // import About from './components/About';
 function App() {
@@ -38,6 +16,7 @@ function App() {
       <Home />
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" exact component={SearchBar} />
         <Route path="/student-login" element={
           <Modal>
             <StudentLogin />
@@ -48,12 +27,12 @@ function App() {
             <StudentSignup/>
           </Modal>
         } />
-        
+{/*         
         <Route path="/admin-login" element={
           <Modal>
             <AdminLogin />
           </Modal>
-        } />
+        } /> */}
       </Routes>
     </BrowserRouter>
     // <BrowserRouter>
