@@ -16,7 +16,7 @@ function App() {
       <Home />
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/" exact component={SearchBar} />
+        <Route path="/" exact component={Home} />
         <Route path="/student-login" element={
           <Modal>
             <StudentLogin />

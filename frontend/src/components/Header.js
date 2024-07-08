@@ -29,14 +29,7 @@ function Header() {
           console.error(error);
         }
       };
-      const fetch=async()=>{
-        const {data}=await axios.get('/api/books/search');
-
-        console.log(data);
-      }
-      useEffect(()=>{
-        fetch();
-      },[])
+      
 
     return (
       <div className="header">
