@@ -17,7 +17,7 @@
   box-shadow: 0 1px 4px rgba(146,161,176,.15);
   top: 0;
   left:0;
-  border: 2px solid #6c1b85ff;
+  /* border: 2px solid #6c1b85ff; */
   /* border-radius: 15%; */
 }
 
@@ -31,7 +31,7 @@
 }
 
 .logo img{
-  height:60px; 
+  height:50px; 
   max-width:120px; 
   margin-right:10px; 
 }
@@ -130,6 +130,7 @@ button[type="submit"]:hover {
   list-style-type: none;
   margin-bottom: 15px!important;
   color:#6c1b85ff;
+  white-space: nowrap; /* Prevents wrapping of links */
 }
 .option {
   display: flex;

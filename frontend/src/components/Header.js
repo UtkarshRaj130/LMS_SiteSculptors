@@ -40,9 +40,11 @@ function Header() {
         <div className="header">
             <div className="logo-nav-new">
                 <div className="logo">
-                    <img src={logo} alt='iitdh logo'></img>
+                    <a href="https://iitdh.ac.in"><img src={logo} alt='iitdh logo'></img></a>
                 </div>
-                <h1>LIBRARY</h1>
+                <Link to="/" onClick={closeMenu}>
+                    <h1>LIBRARY</h1>
+                </Link>
             </div>
             <div className='nav-right'>
                 {/* <form className='search'> */}
@@ -66,7 +68,7 @@ function Header() {
                     </li>
                     <li className="option" onClick={() => { closeMenu() }}>
                         <Link to='/student-login'>
-                            <a href='signin'>SignIn</a>
+                            <a href='signin'>Sign In</a>
                         </Link>
                     </li>
                 </ul>
