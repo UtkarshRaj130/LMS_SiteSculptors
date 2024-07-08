@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
 import '../Styles/Header.css';
@@ -29,6 +29,14 @@ function Header() {
           console.error(error);
         }
       };
+      const fetch=async()=>{
+        const {data}=await axios.get('/api/books/search');
+
+        console.log(data);
+      }
+      useEffect(()=>{
+        fetch();
+      },[])
 
     return (
       <div className="header">

@@ -27,7 +27,7 @@ const SearchBar = () => {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search for books..."
         />
-        <button type="submit">Search</button>
+        <button type="submit" >Search</button>
       </form>
       <div>
         {results.length > 0 && (
