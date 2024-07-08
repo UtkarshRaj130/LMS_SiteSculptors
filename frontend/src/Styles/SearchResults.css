@@ -1,4 +1,3 @@
-/* SearchResults.css */
 .search-results {
     padding: 20px;
     text-align: left; /* Align text to the left */
@@ -17,6 +16,9 @@
 }
 
 .book-item {
+    display: flex; /* Make book item a flex container */
+    align-items: center; /* Align items center vertically */
+    justify-content: space-between; /* Space between book details and button */
     font-size: 18px;
     margin: 10px 0;
     padding: 10px;
@@ -30,6 +32,9 @@
     cursor: pointer;
 }
 
+.book-details {
+    flex-grow: 1; /* Allow book details to grow and take up available space */
+}
 
 .book-title {
     font-weight: bold; /* Make book title bold */
@@ -41,7 +46,27 @@
     color: #a86007; /* Add color to the author name */
 }
 
-.search-results p {
-    font-size: 18px;
-    color: #666;
+.reserve-button {
+    display: flex; /* Use flex to center text inside button */
+    align-items: center;
+    justify-content: center;
+    width: 150px; /* Set fixed width for button */
+    height: 70px; /* Set height to span both lines */
+    margin-left: 20px; /* Add margin to separate from book details */
+    font-size: 16px;
+    color: #fff;
+    background-color: #6c1b85ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; /* Center text horizontally */
+}
+
+.reserve-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.reserve-button:hover:enabled {
+    background-color: #a86007;
 }

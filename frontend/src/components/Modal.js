@@ -1,11 +1,11 @@
+// Modal.js
 import React from 'react';
-import '../Styles/Modal.css'
+import '../Styles/Modal.css';
 
-const Modal = ({ children }) => {
+const Modal = ({ children, onClose }) => {
   return (
-    <div className="modal">
-      <div className="modal-overlay" />
-      <div className="modal-content">
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
         {children}
       </div>
     </div>

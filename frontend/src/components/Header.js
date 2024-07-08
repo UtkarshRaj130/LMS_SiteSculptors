@@ -1,7 +1,5 @@
-// Header.js
-
 import React from 'react';
-import { useState } from 'react'
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../Styles/Header.css';
 import logo from './image.png';
@@ -12,25 +10,26 @@ function Header() {
     const navigate = useNavigate(); // Added navigate function
 
     const Toggle = () => {
-        setMenutoggle(!menutoggle)
-    }
+        setMenutoggle(!menutoggle);
+    };
 
     const closeMenu = () => {
-        setMenutoggle(false)
-    }
+        setMenutoggle(false);
+    };
 
     // Dummy search results data
     const dummyData = [
-        { id: 1, title: 'Book One', author: 'Author A' },
-        { id: 2, title: 'Book Two', author: 'Author B' },
-        { id: 3, title: 'Book Three', author: 'Author C' },
+        { id: 1, title: 'Book One', author: 'Author A', copiesAvailable: 3 },
+        { id: 2, title: 'Book Two', author: 'Author B', copiesAvailable: 5 },
+        { id: 3, title: 'Book Three', author: 'Author C', copiesAvailable: 0 },
     ];
 
     const handleSearch = (e) => {
         e.preventDefault();
-        // Filter dummy data based on the search query
+        // Filter dummy data based on the search query (title or author)
         const filteredResults = dummyData.filter(book =>
-            book.title.toLowerCase().includes(searchQuery.toLowerCase())
+            book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            book.author.toLowerCase().includes(searchQuery.toLowerCase())
         );
 
         // Navigate to the SearchResults page with the search results as state
@@ -51,7 +50,7 @@ function Header() {
                     <input
                         className='search-input'
                         type='text'
-                        placeholder='Search a Book'
+                        placeholder='Search by Book or Author'
                         value={searchQuery}
                         onChange={(e) => setsearchQuery(e.target.value)}
                     />

@@ -131,39 +131,54 @@ button[type="submit"]:hover {
   margin-bottom: 15px!important;
   color:#6c1b85ff;
 }
-.option{
+.option {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0px 40px;
   margin-top: 15px;
-  color:#6c1b85ff;
+  color: #6c1b85ff; /* Ensure the text color matches 'Books' */
 }
 
-.option a{
-  color:rgb(246, 244, 247);
-  /* color:#6c1b85ff; */
+.option a {
+  color: rgb(246, 244, 247); /* Text color for links */
   display: flex;
   align-items: center;
   font-weight: 800;
   font-size: 18px;
+  text-decoration: none; /* Remove underline */
 }
 
-.option a:hover{
-  /* color: wheat; */
+.option a:hover {
   transition: all ease 0.5s;
-  text-decoration: underline;
-  /* color:#6c1b85ff */
-  text-decoration-color:#6c1b85ff ;
+  text-decoration: underline; /* Add underline on hover */
+  text-decoration-color: #6c1b85ff; /* Hover underline color */
 }
 
-a{
-  text-decoration: none!important;
+.option:hover {
+  color: rgb(6, 240, 170); /* Hover color */
 }
 
-.option:hover{
-  color: rgb(6, 240, 170);
+/* Ensure the link color and styles match */
+.nav-options a {
+  color: rgb(246, 244, 247); /* Text color for links in the nav options */
+  font-weight: 800;
+  font-size: 18px;
+  text-decoration: none; /* Remove underline */
 }
+
+.nav-options a:hover {
+  transition: all ease 0.5s;
+  text-decoration: underline; /* Add underline on hover */
+  text-decoration-color: #6c1b85ff; /* Hover underline color */
+}
+
+/* Optional: Make sure there's no default link styling */
+a {
+  text-decoration: none !important;
+  color: inherit; /* Inherit color from parent */
+}
+
 
 .mobile-menu{
   display: block;
