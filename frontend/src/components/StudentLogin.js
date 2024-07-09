@@ -40,7 +40,7 @@ function StudentLogin() {
   };
 
   const handleCloseModal = () => {
-    navigate('/'); // Navigate back to home page when modal is closed
+    navigate(-1); // Navigate back to last visited page when modal is closed
   };
 
   return (

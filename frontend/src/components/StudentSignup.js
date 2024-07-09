@@ -55,7 +55,7 @@ function StudentLogin() {
           {error && <div style={{ color: 'red' }}>{error}</div>}
           <p>Already have an account?</p>
           <button onClick={() => navigate(-1)}>Login</button>
-          <button type='button' onClick={() => window.history.go(-2)}>Close</button>
+          <button type='button' onClick={() => navigate(-2)}>Close</button>
         </form>
       </div>
     </div>
