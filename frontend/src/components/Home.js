@@ -10,18 +10,10 @@ function Home() {
   return (
     <div>
       <Header />
-      <Routes>
-        <Route path="/" element={<>
-          <ImgSlide />
-          <hr className="divider" />
-          <About />
-        </>} />
-        <Route path="/books" element={<Books />} />
-        <Route path="/search" element={<SearchResults />} />
-      </Routes>
+      <ImgSlide />
+      <About />
     </div>
   );
 }
 
 export default Home;
-

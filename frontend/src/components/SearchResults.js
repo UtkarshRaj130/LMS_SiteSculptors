@@ -1,38 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from './axiosInstance';
-import BookCard from './BookCard';
+import Header from './Header'; // Import Header component
+import '../Styles/SearchResults.css'; // Import CSS for SearchResults
 
-const SearchResults = () => {
-  const [results, setResults] = useState([]);
+function SearchResults() {
   const location = useLocation();
-  const query = new URLSearchParams(location.search).get('query');
+  const { searchResults } = location.state || { searchResults: [] };
 
-  useEffect(() => {
-    const fetchResults = async () => {
-    try{
-      if (query) {
-        const res = await axios.get(`/api/books/search`, { params: { query } });
-        setResults(res.data);
-      }
-    }catch (error) {
-        console.error('Error fetching books', error);
-    }
-    };
-
-    fetchResults();
-  }, [query]);
+  const handleReserve = (bookId) => {
+    // Logic to reserve the book (e.g., update database, show confirmation message, etc.)
+    console.log(`Book with ID ${bookId} reserved.`);
+    alert(`Book with ID ${bookId} reserved.`);
+  };
 
   return (
     <div>
-      <h1>Search Results</h1>
-      <div>
-        {results.map(book => (
-          <BookCard key={book._id} book={book} />
-        ))}
+      <Header /> {/* Add Header here */}
+      <div className="search-results">
+        <h2>Search Results</h2>
+        {searchResults.length === 0 ? (
+          <p>No books found.</p>
+        ) : (
+          <ul className="book-list">
+            {searchResults.map((book) => (
+              <li key={book.id} className="book-item">
+                <div className="book-details">
+                  <span className="book-title">{book.title}</span> by <span className="book-author">{book.author}</span>
+                  <div>Copies Available: {book.copiesAvailable}</div>
+                </div>
+                <button 
+                  className="reserve-button" 
+                  onClick={() => handleReserve(book.id)} 
+                  disabled={book.copiesAvailable === 0}
+                >
+                  Reserve
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
-};
+}
 
 export default SearchResults;

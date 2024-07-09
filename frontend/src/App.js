@@ -1,20 +1,18 @@
+// App.js
+
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import StudentSignup from './components/StudentSignup';
 import Home from './components/Home';
 import StudentLogin from './components/StudentLogin';
-import Modal from './components/Modal';
-import SearchResults from './components/SearchResults';
-import Books from './components/Books';
-import './App.css';
+import Modal from './components/Modal'; // new modal component
+import SearchResults from './components/SearchResults'; // New import for SearchResults
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/books" element={<Books />} />
-        <Route path="/search" element={<SearchResults />} />
         <Route path="/student-login" element={
           <Modal>
             <StudentLogin />
@@ -25,6 +23,8 @@ function App() {
             <StudentSignup />
           </Modal>
         } />
+        <Route path="/search-results" element={<SearchResults />} /> {/* New route for SearchResults */}
+
       </Routes>
     </BrowserRouter>
   );
