@@ -13,7 +13,7 @@ function StudentLogin() {
     event.preventDefault();
     // Add login logic here
     const students = [
-      { email: 'student1@example.com', password: 'password123' },
+      { email: 'student1@example.com', password: 'pas@123' },
       { email: 'student2@example.com', password: 'password2' },
       { email: 'student3@example.com', password: 'password3' },
     ];
@@ -22,11 +22,25 @@ function StudentLogin() {
       setError('Invalid email or password');
     } else {
       localStorage.setItem('studentToken', 'authenticated');
-      navigate('/student-dashboard');
+      // setTimeoutalert('You have successfully logged in!');
+      let alertTimeout;
+      alertTimeout = setTimeout(() => {
+        alert(`You have successfully logged in!`);
+      }, 0);
+      setTimeout(() => {
+        clearTimeout(alertTimeout);
+        window.location.reload()
+        navigate(-1); // or navigate(-1) if you want to go back to previous page
+      }, 3000);
+      // navigate(-1);
     }
   };
   const handleNotSignedIn = () => {
     navigate('/student-signup');
+  };
+
+  const handleCloseModal = () => {
+    navigate('/'); // Navigate back to home page when modal is closed
   };
 
   return (
@@ -42,7 +56,7 @@ function StudentLogin() {
     <button type='submit'>Login</button>
     {error && <div style={{ color: 'red' }}>{error}</div>}
     <button type='button' onClick={handleNotSignedIn}> Sign up!</button>
-    <button className='close-modal' onClick={() => navigate(-1)}>Close</button>
+    <button className='close-modal' onClick={handleCloseModal}>Close</button>
 
     </form>
 
