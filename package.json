@@ -1,0 +1,16 @@
+{
+  "name": "lms_sitesculptors",
+  "version": "1.0.0",
+  "description": "connection string - mongodb://localhost:27017/\r ```\r High-level overview of the project structure:\r LMS_SiteSculptors/\r ├── backend/\r │   ├── models/\r │   │   ├── book.js\r │   │   └── user.js\r │   ├── routes/\r │   │   ├── books.js\r │   │   └── users.js\r │   ├── server.js\r │   └── .env\r ├── frontend/\r │   ├── public/\r │   ├── src/\r │   │   ├── components/\r │   │   │   ├── Home.js\r │   │   │   ├── Login.js\r │   │   │   ├── Register.js\r │   │   │   └── BookList.js\r │   │   ├── App.js\r │   │   ├── index.js\r │   │   └── App.css\r │   ├── package.json\r │   └── .env\r ├── package.json\r └── README.md\r ```\r To run the React application you have, follow these steps:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axois": "^0.0.1-security",
+    "mongoose": "^8.4.5"
+  }
+}

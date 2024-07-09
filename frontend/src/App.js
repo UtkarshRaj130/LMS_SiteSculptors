@@ -1,4 +1,5 @@
 // App.js
+
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import StudentSignup from './components/StudentSignup';
@@ -19,10 +20,11 @@ function App() {
         } />
         <Route path="/student-signup" element={
           <Modal>
-            <StudentSignup/>
+            <StudentSignup />
           </Modal>
         } />
         <Route path="/search-results" element={<SearchResults />} /> {/* New route for SearchResults */}
+
       </Routes>
     </BrowserRouter>
   );
