@@ -48,13 +48,15 @@ function StudentLogin() {
     <div className=' studentlogin '>
     
     <form onSubmit={handleSubmit}>
-    <h1> LOG IN</h1>  
+    <h1>Log In</h1>  
     <label htmlFor='email' >Email</label>
     <input type="email" id="email" className='input-box'value={email} onChange={(event) => setEmail(event.target.value)} ></input>
     <label htmlFor='password'>password</label>
     <input type="password" id="password" className="input-box" value={password} onChange={(event) => setPassword(event.target.value)} ></input>
     <button type='submit'>Login</button>
     {error && <div style={{ color: 'red' }}>{error}</div>}
+
+    <p>New User?</p>
     <button type='button' onClick={handleNotSignedIn}> Sign up!</button>
     <button className='close-modal' onClick={handleCloseModal}>Close</button>
 

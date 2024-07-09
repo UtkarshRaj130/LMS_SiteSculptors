@@ -25,25 +25,23 @@ function StudentLogin() {
     <div className='signup-page student-signup'>
       <div className='studentsignup '>
         <form onSubmit={handleSubmit}>
-          <h1>Student Signup</h1>
+          <h1>Student Sign Up</h1>
           <label htmlFor='name'>
-            Name:
+            Name
+          </label>
             <input type="text" id="name" className='input-box' value={name} onChange={(event) => setName(event.target.value)} />
-          </label>
-          <br />
           <label htmlFor='email'>
-            Email:
+            Email
+          </label>
             <input type="email" id="email" className='input-box' value={email} onChange={(event) => setEmail(event.target.value)} />
-          </label>
-          <br />
           <label htmlFor='password'>
-            Password:
-            <input type="password" id="password" className="input-box" value={password} onChange={(event) => setPassword(event.target.value)} />
+            Password
           </label>
-          <br />
+            <input type="password" id="password" className="input-box" value={password} onChange={(event) => setPassword(event.target.value)} />
           <button type="submit">Sign up</button>
           {error && <div style={{ color: 'red' }}>{error}</div>}
-          <p>Already have an account? <button onClick={() => navigate('/student-login')}>Login</button></p>
+          <p>Already have an account?</p>
+          <button onClick={() => navigate('/student-login')}>Login</button>
           <button type='close' onClick={() => navigate(-1)}>Close</button>
         </form>
       </div>

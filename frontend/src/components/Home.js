@@ -6,12 +6,11 @@ import About from './About';
 function Home() {
   return (
     <div>
-    <Header/>
-    <ImgSlide/>
-    <About/>
-
+      <Header />
+      <ImgSlide />
+      <About />
     </div>
   )
 }
 
-export default Home
+export default Home;
