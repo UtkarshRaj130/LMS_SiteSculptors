@@ -57,7 +57,7 @@ function StudentLogin() {
     {error && <div style={{ color: 'red' }}>{error}</div>}
 
     <p>New User?</p>
-    <button type='button' onClick={handleNotSignedIn}> Sign up!</button>
+    <button type='button' onClick={handleNotSignedIn}>Sign up</button>
     <button className='close-modal' onClick={handleCloseModal}>Close</button>
 
     </form>

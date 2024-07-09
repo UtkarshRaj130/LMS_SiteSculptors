@@ -17,39 +17,48 @@ function StudentLogin() {
       { email: 'student2@example.com', password: 'password2' },
       { email: 'student3@example.com', password: 'password3' },
     ];
-    students.push({email,password,name});localStorage.setItem('students',JSON.stringify(students));
+    students.push({ email, password, name });
+    localStorage.setItem('students', JSON.stringify(students));
     navigate('/student-login');
   };
 
-  return(
+  return (
     <div className='signup-page student-signup'>
       <div className='studentsignup '>
         <form onSubmit={handleSubmit}>
           <h1>Student Sign Up</h1>
-          <label htmlFor='name'>
-            Name
-          </label>
-            <input type="text" id="name" className='input-box' value={name} onChange={(event) => setName(event.target.value)} />
-          <label htmlFor='email'>
-            Email
-          </label>
-            <input type="email" id="email" className='input-box' value={email} onChange={(event) => setEmail(event.target.value)} />
-          <label htmlFor='password'>
-            Password
-          </label>
-            <input type="password" id="password" className="input-box" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <label htmlFor='name'>Name</label>
+          <input
+            type="text"
+            id="name"
+            className='input-box'
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+          <label htmlFor='email'>Email</label>
+          <input
+            type="email"
+            id="email"
+            className='input-box'
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <label htmlFor='password'>Password</label>
+          <input
+            type="password"
+            id="password"
+            className="input-box"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
           <button type="submit">Sign up</button>
           {error && <div style={{ color: 'red' }}>{error}</div>}
           <p>Already have an account?</p>
-          <button onClick={() => navigate('/student-login')}>Login</button>
-          <button type='close' onClick={() => navigate(-1)}>Close</button>
+          <button onClick={() => navigate(-1)}>Login</button>
+          <button type='button' onClick={() => window.history.go(-2)}>Close</button>
         </form>
       </div>
     </div>
-
-
-
-
   );
 }
 
