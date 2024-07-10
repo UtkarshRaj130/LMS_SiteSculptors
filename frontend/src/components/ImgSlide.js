@@ -16,9 +16,9 @@ function ImgSlide() {
     
 
     if (currentTime >= 9 && currentTime <= 18) {
-      setLibraryStatus('Library is currently open ( open from 9am to 6pm)');
+      setLibraryStatus('Library is currently open (open from 9 am to 6 pm)');
     } else {
-      setLibraryStatus('Library is currently closed (open from 9am to 6pm )');
+      setLibraryStatus('Library is currently closed (open from 9 am to 6 pm)');
     }
   }, [new Date().getHours()]);
 
