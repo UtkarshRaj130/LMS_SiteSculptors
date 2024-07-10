@@ -1,0 +1,167 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  /* Login Page Styles */
+  
+  .signup-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height:90vh;
+    margin:0;
+    padding:0;
+    border-radius: 20px;
+    border: 0.5px solid #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden;
+    
+  }
+  
+  /* Login Form Styles */
+  .studentsignup {
+    width: 100%;
+    height: 100%; 
+    background: url("./WhatsApp Image 2024-07-10 at 3.00.47 PM.jpeg");
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: brightness(0.5) opacity(0.7);
+    color: white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* box-sizing: border-box;  */
+    /* overflow-y: auto; */
+    /* gap: 10px; */
+  }
+
+
+  form {
+    margin-top: 0px;
+    height:100%;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    gap: 0px;
+  }
+  
+  h1 {
+    font-weight: 600;
+    font-size: 30px;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+    color:white;
+  }
+  
+  label {
+    color: rgb(241, 235, 235);
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 2px;
+    padding-left: 10px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    /* margin-bottom:10px; */
+    height: 40px;
+    box-sizing: border-box;
+    line-height: 40px;
+    border-radius: 20px;
+    padding: 0px 20px;
+    border: none;
+    margin-bottom: 10px;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  button {
+    background-color: rgba(45, 126, 231);
+    height: 40px;
+    line-height: 40px;
+    border-radius: 40px;
+    border: none;
+    margin: 10px 0px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: rgba(45, 126, 231, 0.8);
+  }
+  button[type="submit"]{
+    margin-top:10px;
+  }
+  /* Media Queries */
+  
+  @media screen and (max-width: 480px) {
+    .login-page {
+      width: 100%;
+      height: auto;
+    }
+    form {
+      padding: 20px;
+    }
+    input {
+      width: 100%;
+    }
+    button {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .login-page {
+      width: 80%;
+      height: auto;
+    }
+    form {
+      padding: 30px;
+    }
+    input {
+      width: 80%;
+    }
+    button {
+      width: 80%;
+    }
+  }
+  
+  @media screen and (min-width: 769px) {
+    .login-page {
+      width: 60%;
+      height: auto;
+    }
+    form {
+      padding: 40px;
+    }
+    input {
+      width: 60%;
+    }
+    button {
+      width: 60%;
+    }
+  }
