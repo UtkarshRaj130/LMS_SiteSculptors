@@ -23,16 +23,12 @@ function StudentLogin() {
     } else {
       localStorage.setItem('studentToken', 'authenticated');
       // setTimeoutalert('You have successfully logged in!');
-      let alertTimeout;
-      alertTimeout = setTimeout(() => {
-        alert(`You have successfully logged in!`);
-      }, 0);
-      setTimeout(() => {
-        clearTimeout(alertTimeout);
-        window.location.reload()
-        navigate(-1); // or navigate(-1) if you want to go back to previous page
-      }, 3000);
-      // navigate(-1);
+      alert(`You have successfully logged in!`);
+        // or navigate(-1) if you want to go back to previous page
+        setTimeout(() => {
+          // window.location.reload();
+          navigate(-1); // or navigate(-1) if you want to go back to previous page
+        }, 500); 
     }
   };
   const handleNotSignedIn = () => {
@@ -56,17 +52,13 @@ function StudentLogin() {
     <button type='submit'>Login</button>
     {error && <div style={{ color: 'red' }}>{error}</div>}
 
-    <p>New User?</p>
+    New User?
     <button type='button' onClick={handleNotSignedIn}>Sign up</button>
     <button className='close-modal' onClick={handleCloseModal}>Close</button>
 
     </form>
-
     </div>
     </div>
-
-    
-
   );
 }
 

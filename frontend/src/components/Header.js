@@ -35,9 +35,9 @@ function Header() {
         setFilteredBooks(results);
       }, [searchQuery, books]);*/
 
-    const Toggle = () => {
-        setMenutoggle(!menutoggle);
-    };
+    // const Toggle = () => {
+    //     setMenutoggle(!menutoggle);
+    // };
 
     const closeMenu = () => {
         setMenutoggle(false);
@@ -82,6 +82,7 @@ function Header() {
                         placeholder='Search by Book or Author'
                         value={searchQuery}
                         onChange={(e) => setsearchQuery(e.target.value)}
+                        // onClick={navigate('/search-results')}
                     />
                     <button type="button" onClick={handleSearch}><FaSearch id='search-icon'/></button>
                 </div>

@@ -53,7 +53,7 @@ function StudentLogin() {
           />
           <button type="submit">Sign up</button>
           {error && <div style={{ color: 'red' }}>{error}</div>}
-          <p>Already have an account?</p>
+          Already have an account?
           <button onClick={() => navigate(-1)}>Login</button>
           <button type='button' onClick={() => navigate(-2)}>Close</button>
         </form>

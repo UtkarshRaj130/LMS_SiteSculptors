@@ -1,15 +1,15 @@
 import React from 'react';
 import ImgSlide from './ImgSlide';
-import Header from './Header';
+// import Header from './Header';
 import About from './About';
-import Books from './Books'; // Import Books component
-import SearchResults from './SearchResults'; // Import SearchResults component
-import { Route, Routes } from 'react-router-dom';
+// import Books from './Books'; // Import Books component
+// import SearchResults from './SearchResults'; // Import SearchResults component
+// import { Route, Routes } from 'react-router-dom';
 
 function Home() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <ImgSlide />
       <About />
     </div>
