@@ -15,16 +15,23 @@
     padding: 0;
 }
 
+.separator {
+    color: black; /* Color for the separator */
+    margin: 0 0.5rem; /* Space around the separator */
+}
+
 .book-item {
     display: flex; /* Make book item a flex container */
     align-items: center; /* Align items center vertically */
-    justify-content: space-between; /* Space between book details and button */
+    /* justify-content: space-between;  */
+    /* Space between book details and button */
     font-size: 18px;
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .book-item:hover {
@@ -33,11 +40,13 @@
 }
 
 .book-details {
+    padding-right: 20px;
     flex-grow: 1; /* Allow book details to grow and take up available space */
 }
 
 .book-title {
     font-weight: bold; /* Make book title bold */
+    font-size: x-large;
     color: #6c1b85ff; /* Add color to the book title */
 }
 
@@ -61,7 +70,7 @@
     align-items: center;
     justify-content: center;
     width: 150px; /* Set fixed width for button */
-    height: 70px; /* Set height to span both lines */
+    height: 105px; /* Set height to span both lines */
     margin-left: 20px; /* Add margin to separate from book details */
     font-size: 16px;
     color: #fff;

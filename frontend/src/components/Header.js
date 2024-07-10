@@ -2,7 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../Styles/Header.css';
-import logo from './image.png';
+import logo from './images/image.png';
 import {FaSearch} from 'react-icons/fa';
 import axios from './axiosInstance'; 
 
@@ -55,10 +55,13 @@ function Header() {
         // Filter dummy data based on the search query (title or author)
         const filteredResults = books.filter(book =>
             book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            book.author.toLowerCase().includes(searchQuery.toLowerCase())||
-            book.department.toLowerCase().includes(searchQuery.toLowerCase())||
-            book.genre.toLowerCase().includes(searchQuery.toLowerCase())
+            book.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            book.department.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            book.genre.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            book.id.toString().includes(searchQuery.toLowerCase()) || // Assuming id is a number, convert to string
+            book.vendor.toLowerCase().includes(searchQuery.toLowerCase())
         );
+        
 
         // Navigate to the SearchResults page with the search results as state
         navigate('/search-results', { state: { searchResults: filteredResults } });
@@ -81,7 +84,7 @@ function Header() {
                     <input
                         className='search-input'
                         type='text'
-                        placeholder='Search by Book or Author or Department or Genre'
+                        placeholder='Search by Book / Author / Department / Genre'
                         value={searchQuery}
                         onChange={(e) => setsearchQuery(e.target.value)}
                         // onClick={navigate('/search-results')}
