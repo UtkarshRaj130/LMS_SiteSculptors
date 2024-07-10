@@ -1,125 +1,23 @@
-
-*h1{
-  color:green;
+.carousel-item {
+  height: 100vh; /* Adjust the height as needed */
+  overflow: hidden; /* Ensure content outside the fixed height is hidden */
 }
 
-.main{
-  padding-top: 30px;
+.carousel-item img {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  max-height: 70vh;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: rgb(131, 79, 147);
-  /* gap: 10px; add a small gap between images */
-
-   }
-   
-  .parallax {
-    /* margin-left:5%; */
-  /* flex: 1; make all divs equal width */
-  height: 50%;
-  width:17%;
-  margin: 0px ;/* add some margin for spacing */
-  cursor: pointer; /* change cursor on hover */
-  background-size: cover;
-  transition: 0.5s;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /* clip-path: inset(0 0 0 0 round 10px); */
-    transform: perspective(400px) rotateY(0deg);
-    transition: 0.5s;
-  }
-  .parallax img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* make image cover the entire div */
-    /* add transition for smooth effect */
-    /* /* clip-path: inset(0 0 0 0 round 10px); */
-    transform: perspective(400px) rotateY(0deg);
-    transition: 0.5s;
-    cursor: pointer;
-    margin: 0;
-    padding:0 ;
-    border:0;
-    opacity:0.85;
-    border-radius: 10%;
-    
-    
-  
-  
-  }
-.library-status {
-  position: absolute;
-  /* width:50%; */
-  /* top: 50%; */
-  right: 30%;
-  bottom:5%;
-  left:30%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color:rgb(132, 224, 238);
-  /* font-weight: bold; */
-  z-index: 1; /* make sure it's on top of the image */
-  background-color: rgba(112, 110, 110, 0.5);
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.carousel-caption{
+  background-color: rgba(73, 71, 71, 0.3);
+  /* opacity:0.5; */
 }
 
-.library-status h3{
-  margin-top:0;
-  color:rgb(243, 244, 244);
-  }
-
-.library-status p{
-  color:yellow;
-
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
 }
 
-.login-text {
-  position: absolute;
-  /* top: 50%; */
-  left: 50%;
-  top:5%;
-  transform: translateX(-50%);
-  text-align: center;
-  color: #fff;
-  font-size: 10px;
-  /* font-weight: bold; */
-  z-index: 2;
-  /* background-color: rgba(112, 110, 110, 0.5); add a dark background to make the text more visible */
-  padding: 10px;
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
-  .parallax img:hover {
-   
-     transform: perspective(400px) translateX(-10%) rotateY(-10deg);
-     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  }
-
-  @media only screen and (max-width: 480px) {
-    .main {
-       height: 60vh; 
-     }
-     img {
-       max-width: 60%;
-     }
-   }
-   @media only screen and (min-width: 481px) and (max-width: 768px) {
-    .main {
-       height: 70vh; 
-     }
-     img {
-       max-width: 70%; 
-     }
-   }
-   @media only screen and (min-width: 769px) {
-    .main {
-       height: 80vh; 
-     }
-     img {
-       max-width: 80%; 
-     }
-   }

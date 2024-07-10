@@ -8,10 +8,10 @@ hr{
   margin-bottom:0px;
 }
  .about-box {
-  padding-top: 10px;
+  /* padding-top: 10px; */
   background-color: rgb(91, 14, 114);
-  height: 100vh; /* Use 100vh instead of fixed height */
-  margin-top: 0;
+  height: 90vh; /* Use 100vh instead of fixed height */
+  /* margin-top: 0; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,6 +24,7 @@ hr{
   font-size: 32px;
   padding: 25px;
   margin-bottom: 20px;
+  margin-top:0px;
 }
 
 .about-img  img {

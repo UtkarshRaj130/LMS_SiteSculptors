@@ -1,6 +1,5 @@
 # LMS_SiteSculptors
 connection string - mongodb://localhost:27017/
-
 ```
 High-level overview of the project structure:
 LMS_SiteSculptors/
