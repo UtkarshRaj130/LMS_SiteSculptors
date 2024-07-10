@@ -101,7 +101,7 @@
   border-bottom-right-radius: 10px;
   border-top-left-radius: 1px;
   border-bottom-left-radius: 1px;
-  width: 20%; /* adjust the width of the search button */
+  width: 10%; /* adjust the width of the search button */
   height:70%; /* adjust the height of the search button */
   margin: 10px 0px; /* adjust the margin top of the search button */
   background-color:#6c1b85ff;
@@ -109,7 +109,7 @@
   color: #fff;
   border:1px solid rgb(25, 21, 29);
   /* padding: 0.5rem ; */
-  font-size: 18px;
+  font-size: 25px;
   cursor: pointer;
   
 }

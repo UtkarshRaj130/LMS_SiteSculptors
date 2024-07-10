@@ -25,12 +25,12 @@ function SearchResults() {
             {searchResults.map((book) => (
               <li key={book.id} className="book-item">
                 <div className="book-details">
-                  <span className="book-title">{book.title}</span> by <span className="book-author">{book.author}</span>
-                  <div>Copies Available: {book.copiesAvailable}</div>
+                  <span className="book-title">{book.title}</span> <br></br> <span className="book-author">{book.author}</span>
+                  <div>Copies Available: {book.count}</div>
                 </div>
                 <button 
                   className="reserve-button" 
-                  onClick={() => handleReserve(book.id)} 
+                  onClick={() => handleReserve(book.publisher_id)} 
                   disabled={book.copiesAvailable === 0}
                 >
                   Reserve
