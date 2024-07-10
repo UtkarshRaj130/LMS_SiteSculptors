@@ -9,9 +9,9 @@ function Header() {
     const [searchQuery, setsearchQuery] = useState('');
     const navigate = useNavigate(); // Added navigate function
 
-    const Toggle = () => {
-        setMenutoggle(!menutoggle);
-    };
+    // const Toggle = () => {
+    //     setMenutoggle(!menutoggle);
+    // };
 
     const closeMenu = () => {
         setMenutoggle(false);
@@ -55,8 +55,9 @@ function Header() {
                         placeholder='Search by Book or Author'
                         value={searchQuery}
                         onChange={(e) => setsearchQuery(e.target.value)}
+                        // onClick={navigate('/search-results')}
                     />
-                    <button type="button" onClick={handleSearch}>Search</button>
+                    <button type="button" onClick={handleSearch} onclick ={()=>navigate('/search-results')}>Search</button>
                 </div>
                 {/* </form> */}
 
