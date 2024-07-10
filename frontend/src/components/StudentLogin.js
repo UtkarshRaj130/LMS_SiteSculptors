@@ -56,17 +56,13 @@ function StudentLogin() {
     <button type='submit'>Login</button>
     {error && <div style={{ color: 'red' }}>{error}</div>}
 
-    <p>New User?</p>
+    New User?
     <button type='button' onClick={handleNotSignedIn}>Sign up</button>
     <button className='close-modal' onClick={handleCloseModal}>Close</button>
 
     </form>
-
     </div>
     </div>
-
-    
-
   );
 }
 
