@@ -1,8 +1,8 @@
 // import React from 'react'
 import React, { useState, useEffect } from 'react';
-import image1 from './images/AdminBuilding.jpg';
-import image2 from './images/image2iitdh.jpg';
-import image3 from './images/image3iitdh.jpg';
+import image1 from './image1iitdh.jpeg';
+import image2 from './image2iitdh.jpg';
+import image3 from './image3iitdh.jpg';
 
 
 import '../Styles/ImgSlide.css'
