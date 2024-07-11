@@ -176,6 +176,7 @@ button[type="submit"]:hover {
 
 /* Optional: Make sure there's no default link styling */
 a {
+  display: contents;
   text-decoration: none !important;
   color: inherit; /* Inherit color from parent */
 }
