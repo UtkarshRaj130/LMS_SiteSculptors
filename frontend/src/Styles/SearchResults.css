@@ -63,7 +63,12 @@
     color: rgb(0, 164, 39); /* Add color to the book title */
 }
 
-.reserve-button {
+.book-copies {
+    font-weight: bold;
+    color: blue;
+}
+
+.reserve-button-search {
     display: flex; /* Use flex to center text inside button */
     align-items: center;
     justify-content: center;

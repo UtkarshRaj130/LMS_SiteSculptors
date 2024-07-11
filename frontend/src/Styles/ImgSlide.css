@@ -6,8 +6,15 @@
 .carousel-control-prev,
 .carousel-control-next {
   top: 50%;
+  margin: 1%;
   transform: translateY(-50%);
   width: 5%; /* Adjust the width as needed */
+  background-color: rgba(137, 43, 226, 0.599);
+} 
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(137, 43, 226, 0.778);
 } 
 
 .carousel-item img {
@@ -17,7 +24,7 @@
   object-position: center;
 }
 .carousel-caption{
-  background-color: rgba(48, 47, 47, 0.491);
+  background-color: rgba(48, 47, 47, 0.766);
   border-radius: 15px; /* Adjust the value as needed for rounded corners */
   padding: 20px; /* Optional: Adjust padding to fit text nicely within the rounded box */
   /* opacity:0.5; */

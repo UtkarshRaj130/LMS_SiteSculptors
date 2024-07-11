@@ -80,7 +80,7 @@ function Header() {
                 <ul className={menutoggle ? "nav-options active" : "nav-options"}>
                     <li className="option" onClick={() => { closeMenu() }}>
                         <Link to='/books'>
-                            <a href="#books">Books</a>
+                            <a href="#books">My Books</a>
                         </Link>
                     </li>
                     <li className="option" onClick={() => { closeMenu() }}>
