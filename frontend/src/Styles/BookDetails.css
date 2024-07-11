@@ -17,7 +17,6 @@
   /* Container for the book details */
   .book-details {
     font-size: 18px;
-    margin: 10px 0;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -44,20 +43,20 @@
   }
   
   /* Styling for the reserve button */
-  .reserve-button {
+  /* .reserve-button {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 150px;
     height: 50px;
-    margin-top: 20px; /* Add margin to separate from the book details */
+    margin-top: 20px;
     font-size: 16px;
     color: #fff;
     background-color: #6c1b85ff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
+  } */
   
   .reserve-button:disabled {
     background-color: #ccc;
@@ -80,10 +79,10 @@
       padding: 8px;
     }
   
-    .reserve-button {
+    /* .reserve-button {
       width: 100%;
       font-size: 14px;
       height: 40px;
-    }
+    } */
   }
   

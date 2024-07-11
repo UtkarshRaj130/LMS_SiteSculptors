@@ -26,29 +26,11 @@ function Header() {
     
         fetchBooks();
       }, []);
-    
-     /* useEffect(() => {
-        const results = books.filter(book =>
-          book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          book.author.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-        setFilteredBooks(results);
-      }, [searchQuery, books]);*/
 
-    // const Toggle = () => {
-    //     setMenutoggle(!menutoggle);
-    // };
 
     const closeMenu = () => {
         setMenutoggle(false);
     };
-
-    // Dummy search results data
-   /* const dummyData = [
-        { id: 1, title: 'Book One', author: 'Author A', copiesAvailable: 3 },
-        { id: 2, title: 'Book Two', author: 'Author B', copiesAvailable: 5 },
-        { id: 3, title: 'Book Three', author: 'Author C', copiesAvailable: 0 },
-    ];*/
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -57,9 +39,7 @@ function Header() {
             book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
             book.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
             book.department.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            book.genre.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            book.id.toString().includes(searchQuery.toLowerCase()) || // Assuming id is a number, convert to string
-            book.vendor.toLowerCase().includes(searchQuery.toLowerCase())
+            book.genre.toLowerCase().includes(searchQuery.toLowerCase())
         );
         
 
@@ -78,7 +58,6 @@ function Header() {
                 </Link>
             </div>
             <div className='nav-right'>
-                {/* <form className='search'> */}
                 <div className='search' onSubmit={handleSearch} >
                     
                     <input
@@ -87,11 +66,9 @@ function Header() {
                         placeholder='Search by Book / Author / Department / Genre'
                         value={searchQuery}
                         onChange={(e) => setsearchQuery(e.target.value)}
-                        // onClick={navigate('/search-results')}
                     />
                     <button type="button" onClick={handleSearch}><FaSearch id='search-icon'/></button>
                 </div>
-                {/* </form> */}
 
                 <ul className={menutoggle ? "nav-options active" : "nav-options"}>
                     <li className="option" onClick={() => { closeMenu() }}>
@@ -106,14 +83,6 @@ function Header() {
                     </li>
                 </ul>
             </div>
-
-            {/* <div className="mobile-menu" onClick={() => { Toggle() }}>
-                {menutoggle ? (
-                    <ClearIcon className="menu-icon" style={{ fontSize: 40 }} />
-                ) : (
-                    <MenuIcon className="menu-icon" style={{ fontSize: 40 }} />
-                )}
-            </div> */}
         </div>
     );
 }

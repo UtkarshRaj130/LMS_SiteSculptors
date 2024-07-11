@@ -22,16 +22,14 @@
 
 .book-item {
     display: flex; /* Make book item a flex container */
-    align-items: center; /* Align items center vertically */
-    /* justify-content: space-between;  */
-    /* Space between book details and button */
+    align-items: stretch; /* Align items center vertically */
+    justify-content: space-between; /* Space between book details and button */
     font-size: 18px;
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%;
 }
 
 .book-item:hover {
@@ -69,9 +67,12 @@
     display: flex; /* Use flex to center text inside button */
     align-items: center;
     justify-content: center;
-    width: 150px; /* Set fixed width for button */
-    height: 105px; /* Set height to span both lines */
-    margin-left: 20px; /* Add margin to separate from book details */
+    width: 10%; /* Set width for button as a percentage of the container */
+    min-width: 150px; /* Ensure button has a minimum width */
+    height: auto; /* Set height to span both lines */
+    margin-left: 10px; /* Add margin to separate from book details */
+    margin-top: 0%;
+    margin-bottom: 0%;
     font-size: 16px;
     color: #fff;
     background-color: #6c1b85ff;
