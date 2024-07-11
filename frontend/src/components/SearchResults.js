@@ -31,7 +31,7 @@ function SearchResults() {
                 </div>
                 <button 
                   className="reserve-button" 
-                  onClick={() => handleReserve(book.publisher_id)} 
+                  onClick={() => handleReserve(book._id)} 
                   disabled={book.copiesAvailable === 0}
                 >
                   Reserve
