@@ -65,9 +65,9 @@ function SearchResults() {
                     <span className="book-copies">Copies Available: {book.count}</span>
                   </div>
                 </div>
-                <button
-                  className="reserve-button"
-                  onClick={() => handleReserve(book.publisher_id)}
+                <button 
+                  className="reserve-button" 
+                  onClick={() => handleReserve(book._id)} 
                   disabled={book.copiesAvailable === 0}
                 >
                   Reserve

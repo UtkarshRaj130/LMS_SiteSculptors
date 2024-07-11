@@ -46,6 +46,11 @@ function Header() {
         // Navigate to the SearchResults page with the search results as state
         navigate('/search-results', { state: { searchResults: filteredResults } });
     };
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch(e);
+        }
+    };
 
     return (
         <div className="header">
@@ -66,6 +71,8 @@ function Header() {
                         placeholder='Search by Book / Author / Department / Genre'
                         value={searchQuery}
                         onChange={(e) => setsearchQuery(e.target.value)}
+                        onKeyDown={handleKeyDown}
+                        // onClick={navigate('/search-results')}
                     />
                     <button type="button" onClick={handleSearch}><FaSearch id='search-icon'/></button>
                 </div>
