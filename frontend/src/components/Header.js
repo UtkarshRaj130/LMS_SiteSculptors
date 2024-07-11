@@ -55,18 +55,11 @@ function Header() {
         // Filter dummy data based on the search query (title or author)
         const filteredResults = books.filter(book =>
             book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            book.author.toLowerCase().includes(searchQuery.toLowerCase())||
-            book.department.toLowerCase().includes(searchQuery.toLowerCase())||
-            book.genre.toLowerCase().includes(searchQuery.toLowerCase())
+            book.author.toLowerCase().includes(searchQuery.toLowerCase())
         );
 
         // Navigate to the SearchResults page with the search results as state
         navigate('/search-results', { state: { searchResults: filteredResults } });
-    };
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter') {
-            handleSearch(e);
-        }
     };
 
     return (
@@ -86,10 +79,9 @@ function Header() {
                     <input
                         className='search-input'
                         type='text'
-                        placeholder='Search by Book or Author or Department or Genre'
+                        placeholder='Search by Book or Author'
                         value={searchQuery}
                         onChange={(e) => setsearchQuery(e.target.value)}
-                        onKeyDown={handleKeyDown}
                         // onClick={navigate('/search-results')}
                     />
                     <button type="button" onClick={handleSearch}><FaSearch id='search-icon'/></button>

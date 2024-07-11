@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "type": "module",
- 
+  "proxy": "http://127.0.0.1:5000",
   "scripts": {
     "start": "node middlewares/server.js",
     "dev": "nodemon src/index.js"
@@ -22,7 +22,7 @@
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "mongodb": "^6.8.0",
-    "mongoose": "^8.5.0",
+    "mongoose": "^8.4.5",
     "path": "^0.12.7"
   },
   "devDependencies": {
