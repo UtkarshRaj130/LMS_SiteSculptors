@@ -1,4 +1,4 @@
-import fs from 'fs';
+/*import fs from 'fs';
 import path from 'path';
 
 const __dirname = path.resolve();
@@ -14,18 +14,28 @@ export const getAllBooks = (req, res) => {
 };
 
 export const addBook = (req, res) => {
-  const { title, author, description } = req.body;
+  const { title, description, author, genre, department, count, vendor, vendor_id, publisher, publisher_id } = req.body;
+  
   fs.readFile(path.join(__dirname, 'UpdatedDatasetSOI.json'), 'utf-8', (err, data) => {
     if (err) {
       return res.status(500).json({ message: 'Server error' });
     }
+    
     const books = JSON.parse(data);
     const newBook = {
-      id: books.length ? books[books.length - 1].id + 1 : 1,
+      id,
       title,
-      author,
       description,
+      author,
+      genre,
+      department,
+      count,
+      vendor,
+      vendor_id,
+      publisher,
+      publisher_id
     };
+    
     books.push(newBook);
 
     fs.writeFile(path.join(__dirname, 'UpdatedDatasetSOI.json'), JSON.stringify(books, null, 2), (err) => {
@@ -35,4 +45,39 @@ export const addBook = (req, res) => {
       res.status(201).json(newBook);
     });
   });
+};*/
+import Book from '../models/Book.js';
+
+export const getAllBooks = async (req, res) => {
+  try {
+    const books = await Book.find();
+    res.json(books);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
 };
+
+export const addBook = async (req, res) => {
+  const { title, description, author, genre,department,count,vendor,vendor_id,publisher,publisher_id } = req.body;
+
+  try {
+    const book = new Book({
+      title,
+      description,
+      author,
+      genre,
+      department,
+      count,
+      vendor,
+      vendor_id,
+      publisher,
+      publisher_id,
+    });
+
+    await book.save();
+    res.status(201).json({ message: 'Book added successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
