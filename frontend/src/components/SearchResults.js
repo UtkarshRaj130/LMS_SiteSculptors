@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import Header from './Header'; // Import Header component
 import '../Styles/SearchResults.css'; // Import CSS for SearchResults
 
@@ -22,20 +22,39 @@ function SearchResults() {
           <p>No books found.</p>
         ) : (
           <ul className="book-list">
+            {/* {                   console.log(searchResults)} */}
             {searchResults.map((book) => (
-              <li key={book.id} className="book-item">
-                <div className="book-details">
-                  <span className="book-title">{book.title}</span> <br></br> <span className="book-author">{book.author}</span>
-                  <div>Copies Available: {book.count}</div>
-                </div>
-                <button 
-                  className="reserve-button" 
-                  onClick={() => handleReserve(book.publisher_id)} 
-                  disabled={book.copiesAvailable === 0}
-                >
-                  Reserve
-                </button>
-              </li>
+             
+                <li key={book.id} className="book-item">
+                   {/* {console.log(book)} */}
+                  <Link
+                    to={{
+                      pathname: `/book-details/${book._id}`,
+                    }}
+                    state = { book }
+                  >
+                    
+                    <div className="book-details">
+                      <span className="book-title">{book.title}</span>
+                      <br></br> <span className="book-author">{book.author}</span>
+                      <div className="book-info">
+                        <span className="book-department">Department: {book.department}</span>
+                        <span className="separator">|</span>
+                        <span className="book-genre">Genre: {book.genre}</span>
+                        <span className="separator">|</span>
+                        <span className="book-copies">Copies Available: {book.count}</span>
+                      </div>
+                    </div>
+
+                  </Link>
+                  <button
+                    className="reserve-button-search"
+                    onClick={() => handleReserve(book._id)}
+                    disabled={book.copiesAvailable === 0}
+                  >
+                    Reserve
+                  </button>
+                </li>
             ))}
           </ul>
         )}
