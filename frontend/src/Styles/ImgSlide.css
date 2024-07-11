@@ -8,13 +8,13 @@
   top: 50%;
   margin: 1%;
   transform: translateY(-50%);
-  width: 5%; /* Adjust the width as needed */
-  background-color: rgba(137, 43, 226, 0.599);
+  width: 4.5%; /* Adjust the width as needed */
+  background-color: rgba(137, 43, 226, 0.9);
 } 
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-  background-color: rgba(137, 43, 226, 0.778);
+  background-color: rgba(137, 43, 226, 1);
 } 
 
 .carousel-item img {
