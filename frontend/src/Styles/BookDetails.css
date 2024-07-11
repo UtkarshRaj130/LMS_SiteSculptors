@@ -1,0 +1,88 @@
+/* BookDetails.css */
+
+/* Container for the book details page */
+.book-details-container {
+    padding: 20px;
+    text-align: left;
+    padding-top: 80px; /* Ensure content is visible below the fixed header */
+  }
+  
+  /* Heading for the book details */
+  .book-details-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px; /* Add space between the heading and the details */
+  }
+  
+  /* Container for the book details */
+  .book-details {
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Background color for the details container */
+  }
+  
+  /* Styling for the book title */
+  .book-details h3 {
+    font-weight: bold;
+    font-size: x-large;
+    color: #6c1b85ff; /* Color for the book title */
+  }
+  
+  /* Styling for the author */
+  .book-details p {
+    margin: 5px 0;
+    color: #333; /* Default color for the paragraphs */
+  }
+  
+  .book-details p span {
+    font-weight: bold;
+    color: #a86007; /* Color for labels like Author, Department, Genre */
+  }
+  
+  /* Styling for the reserve button */
+  /* .reserve-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #6c1b85ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  } */
+  
+  .reserve-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .reserve-button:hover:enabled {
+    background-color: #a86007;
+  }
+  
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .book-details-container {
+      padding: 10px;
+      padding-top: 60px; /* Adjust padding for mobile view */
+    }
+  
+    .book-details {
+      font-size: 16px;
+      padding: 8px;
+    }
+  
+    /* .reserve-button {
+      width: 100%;
+      font-size: 14px;
+      height: 40px;
+    } */
+  }
+  

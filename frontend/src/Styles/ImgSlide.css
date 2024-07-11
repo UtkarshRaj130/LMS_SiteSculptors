@@ -10,7 +10,9 @@
   object-position: center;
 }
 .carousel-caption{
-  background-color: rgba(73, 71, 71, 0.3);
+  background-color: rgba(48, 47, 47, 0.491);
+  border-radius: 15px; /* Adjust the value as needed for rounded corners */
+  padding: 20px; /* Optional: Adjust padding to fit text nicely within the rounded box */
   /* opacity:0.5; */
 }
 
