@@ -1,33 +1,3 @@
-//           <ul className="book-list">
-//             {searchResults.map((book) => (
-//               <li key={book.id} className="book-item">
-//                 <Link
-//                   to={{
-//                     pathname: `/book-details/${book.id}`,
-//                     state: { book } // Pass the entire book object as state
-//                   }}
-//                 >
-//                   <div className="book-details">
-//                     <span className="book-title">{book.title}</span>
-//                     <br />
-//                     <span className="book-author">Author(s): {book.author}</span>
-//                     <br />
-//                     <div className="book-info">
-//                       <span className="book-department">Department: {book.department}</span>
-//                       <span className="separator">|</span>
-//                       <span className="book-genre">Genre: {book.genre}</span>
-//                       <span className="separator">|</span>
-//                       <span className="book-copies">Copies Available: {book.count}</span>
-//                     </div>
-//                   </div>
-//                 </Link>
-//               </li>
-//             ))}
-//           </ul>
-
-// export default SearchResults;
-
-
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from './Header'; // Import Header component
@@ -55,17 +25,10 @@ function SearchResults() {
             {searchResults.map((book) => (
               <li key={book.id} className="book-item">
                 <div className="book-details">
-                  <span className="book-title">{book.title}</span>
-                  <br></br> <span className="book-author">{book.author}</span>
-                  <div className="book-info">
-                    <span className="book-department">Department: {book.department}</span>
-                    <span className="separator">|</span>
-                    <span className="book-genre">Genre: {book.genre}</span>
-                    <span className="separator">|</span>
-                    <span className="book-copies">Copies Available: {book.count}</span>
-                  </div>
+                  <span className="book-title">{book.title}</span><b> by </b> <br></br> <span className="book-author">{book.author}</span>
+                  <br></br> <span className="book-department">Department : {book.department}</span><br></br> <span className="book-genre">Genre : {book.genre}</span>
+                  <div>Copies Available: {book.count}</div>
                 </div>
-
                 <button 
                   className="reserve-button" 
                   onClick={() => handleReserve(book._id)} 
