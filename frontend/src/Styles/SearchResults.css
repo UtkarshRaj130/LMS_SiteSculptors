@@ -1,0 +1,97 @@
+.search-results {
+    padding: 20px;
+    text-align: left; /* Align text to the left */
+    padding-top: 80px; /* Ensure content is visible below the fixed header */
+}
+
+.search-results h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px; /* Add space between the heading and the book list */
+}
+
+.book-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+}
+
+.separator {
+    color: black; /* Color for the separator */
+    margin: 0 0.5rem; /* Space around the separator */
+}
+
+.book-item {
+    display: flex; /* Make book item a flex container */
+    align-items: stretch; /* Align items center vertically */
+    justify-content: space-between; /* Space between book details and button */
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.book-item:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.book-details {
+    padding-right: 20px;
+    flex-grow: 1; /* Allow book details to grow and take up available space */
+}
+
+.book-title {
+    font-weight: bold; /* Make book title bold */
+    font-size: x-large;
+    color: #6c1b85ff; /* Add color to the book title */
+}
+
+.book-author {
+    font-weight: bold; /* Make author name bold */
+    color: #a86007; /* Add color to the author name */
+}
+
+.book-department {
+    font-weight: bold; /* Make book title bold */
+    color: rgb(215, 38, 174); /* Add color to the book title */
+}
+
+.book-genre {
+    font-weight: bold; /* Make book title bold */
+    color: rgb(0, 164, 39); /* Add color to the book title */
+}
+
+.book-copies {
+    font-weight: bold;
+    color: blue;
+}
+
+.reserve-button-search {
+    display: flex; /* Use flex to center text inside button */
+    align-items: center;
+    justify-content: center;
+    width: 10%; /* Set width for button as a percentage of the container */
+    min-width: 150px; /* Ensure button has a minimum width */
+    height: auto; /* Set height to span both lines */
+    margin-left: 10px; /* Add margin to separate from book details */
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-size: 16px;
+    color: #fff;
+    background-color: #6c1b85ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; /* Center text horizontally */
+}
+
+.reserve-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.reserve-button:hover:enabled {
+    background-color: #a86007;
+}
