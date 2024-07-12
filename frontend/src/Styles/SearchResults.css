@@ -2,17 +2,26 @@
     padding: 20px;
     text-align: left; /* Align text to the left */
     padding-top: 80px; /* Ensure content is visible below the fixed header */
+    background-color: #f5f5f5;
 }
 
 .search-results h2 {
     font-size: 24px;
-    color: #333;
+    font-weight: 800;
+    color: #1b1b1b;
+    /* color:white; */
     margin-bottom: 20px; /* Add space between the heading and the book list */
+    
+ /* Add background color to the heading */
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
 }
 
 .book-list {
     list-style-type: none; /* Remove default list styling */
     padding: 0;
+    margin: 0;
+
 }
 
 .separator {
@@ -30,42 +39,63 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
 .book-item:hover {
-    background-color: #f5f5f5;
+    background-color: #c8c4c4;
     cursor: pointer;
 }
 
 .book-details {
     padding-right: 20px;
     flex-grow: 1; /* Allow book details to grow and take up available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .book-title {
     font-weight: bold; /* Make book title bold */
     font-size: x-large;
     color: #6c1b85ff; /* Add color to the book title */
+    margin-bottom: 5px;
 }
 
 .book-author {
     font-weight: bold; /* Make author name bold */
     color: #a86007; /* Add color to the author name */
+    margin-bottom: 5px;
 }
+.book-info{
+    display: flex;
+    align-items: center;
+}
+
 
 .book-department {
     font-weight: bold; /* Make book title bold */
     color: rgb(215, 38, 174); /* Add color to the book title */
+    margin-right: 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .book-genre {
     font-weight: bold; /* Make book title bold */
     color: rgb(0, 164, 39); /* Add color to the book title */
+    margin-right: 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .book-copies {
     font-weight: bold;
     color: blue;
+    margin-right: 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .reserve-button-search {
@@ -85,6 +115,7 @@
     border-radius: 5px;
     cursor: pointer;
     text-align: center; /* Center text horizontally */
+    /* transition: background-color 0.3s ease; */
 }
 
 .reserve-button:disabled {
@@ -95,3 +126,49 @@
 .reserve-button:hover:enabled {
     background-color: #a86007;
 }
+
+
+
+
+
+
+
+.filter-container {
+    margin-bottom: 20px; /* Add space between filter and book list */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f5f5f5; /* Add background color to the filter container */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter-container label {
+    font-weight: bold;
+    margin-right: 10px;
+    color:#b5731d;
+  }
+  
+  .filter-container select {
+    width: 20%; /* Set width for the select element */
+    height: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  .filter-container select:focus {
+    border-color: #929090;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .filter-container select option {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
