@@ -17,13 +17,13 @@
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   /*background-color: #fff;  Background color for the details container */
   background-image: url('./bg.jpg'); /* Add your image URL */
   background-size: cover; /* or contain, depending on your needs */
   background-position: center; /* Adjust positioning */
-  border-color: #a86007;
-  border-width: 2px;
+  border-color: #ad8d50;
+  border-width: 6px;
 }
 
 .book-details-searchRes {
