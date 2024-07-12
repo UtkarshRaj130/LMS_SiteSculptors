@@ -72,7 +72,6 @@ function Header() {
                         value={searchQuery}
                         onChange={(e) => setsearchQuery(e.target.value)}
                         onKeyDown={handleKeyDown}
-                        // onClick={navigate('/search-results')}
                     />
                     <button type="button" onClick={handleSearch}><FaSearch id='search-icon'/></button>
                 </div>

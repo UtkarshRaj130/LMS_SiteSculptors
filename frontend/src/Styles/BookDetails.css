@@ -18,6 +18,21 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /*background-color: #fff;  Background color for the details container */
+  background-image: url('./bg.jpg'); /* Add your image URL */
+  background-size: cover; /* or contain, depending on your needs */
+  background-position: center; /* Adjust positioning */
+  border-color: #a86007;
+  border-width: 2px;
+}
+
+.book-details-searchRes {
+  font-size: 18px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
   background-color: #fff; /* Background color for the details container */
 }
 
@@ -26,12 +41,14 @@
   margin-bottom: 10px;
   display: flex;
   align-items: center;
+  /* color: white; */
 }
 
 /* Styling for the labels in each detail row */
 .detail-label {
   font-weight: bold;
-  color: #6c1b85ff; /* Color for the labels */
+  color: #6c1b85ff; /*  Color for the labels */
+  /* color: yellow; */
   width: 150px; /* Fixed width for labels to align details */
   margin-right: 10px;
 }

@@ -1,19 +1,20 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from './Header';
-import '../Styles/BookDetails.css'; // Changed the CSS import to BookDetails.css
+import '../Styles/BookDetails.css';
 
 function BookDetails() {
     const location = useLocation();
-    const book  = location.state || {};
-    console.log(location.state);
+    const book = location.state || {};
 
     if (!book) {
         return (
             <div>
                 <Header />
                 <div className="book-details-container">
-                    <h2>Book Details</h2>
+                    <div style={{ fontSize: '1.5em', marginBottom: '15px' }}>
+                        <strong>Book Details</strong>
+                    </div>
                     <p>Book not found.</p>
                 </div>
             </div>
@@ -30,9 +31,11 @@ function BookDetails() {
         <div>
             <Header />
             <div className="book-details-container">
-                <h2>Book Details</h2>
+                <div style={{ fontSize: '1.5em', marginBottom: '15px' }}>
+                    <strong>Book Details</strong>
+                </div>
                 <div className="book-details">
-                    <div className="detail-row"><span className="detail-label">Title:</span> {<b>{book.title}</b>}</div>
+                    <div className="detail-row"><span className="detail-label">Title:</span> {<b style={{ color: '#6c1b85ff', fontSize: '24px', fontFamily: 'Arial, sans-serif' }}>{book.title}</b>}</div>
                     <div className="detail-row"><span className="detail-label">Author(s):</span> {book.author}</div>
                     <div className="detail-row"><span className="detail-label">Department:</span> {book.department}</div>
                     <div className="detail-row"><span className="detail-label">Genre:</span> {book.genre}</div>
@@ -43,7 +46,7 @@ function BookDetails() {
                     <div className="detail-row"><span className="detail-label">Publisher:</span> {book.publisher}</div>
                     <div className="detail-row"><span className="detail-label">Publisher ID:</span> {book.publisher_id}</div>
                     <div className="detail-row"><span className="detail-label">Description:</span> {book.description}</div>
-                    
+
                     <button
                         className="reserve-button"
                         onClick={() => handleReserve(book._id)}

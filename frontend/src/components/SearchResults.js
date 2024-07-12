@@ -22,11 +22,9 @@ function SearchResults() {
           <p>No books found.</p>
         ) : (
           <ul className="book-list">
-            {/* {                   console.log(searchResults)} */}
             {searchResults.map((book) => (
              
                 <li key={book.id} className="book-item">
-                   {/* {console.log(book)} */}
                   <Link
                     to={{
                       pathname: `/book-details/${book._id}`,
@@ -34,7 +32,7 @@ function SearchResults() {
                     state = { book }
                   >
                     
-                    <div className="book-details">
+                    <div className="book-details-searchRes">
                       <span className="book-title">{book.title}</span>
                       <br></br> <span className="book-author">{book.author}</span>
                       <div className="book-info">
