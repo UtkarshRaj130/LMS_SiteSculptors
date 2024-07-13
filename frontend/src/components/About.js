@@ -30,3 +30,22 @@ function About() {
 }
 
 export default About;
+
+{/* <p>Welcome to our Library Managemnet System (LMS)!</p>
+<br />
+<br />
+<p>Our LMS offers a range of features to make your library experience more convenient and enjoyable.With our system,you can :</p>
+<br />
+<ul>
+    <li>View your borrowed books and their due dates through the "MY Books" option.</li>
+    <li>Search for books in our catalog using our adavanced search function.</li>
+    <li>Reserve books in advance to ensure availability.</li>
+    <li>Click on the IIT Dharwad icon to visit our official website and explore more resources
+    </li>
+</ul>
+<br />
+<br/>
+<p>Our Goal is to provide a user-friendly and efficient platform for all your library needs.We value your feedback and suggestions, so please don't hesitate to reach out to us for any improvements or ideas you may have.</p>
+<br />
+<br />
+<p>Thankyou for being a part of the IIT Dharwad Library community!</p> */}
