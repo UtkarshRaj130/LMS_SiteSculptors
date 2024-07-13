@@ -12,16 +12,28 @@ function About() {
                 </div>
                 <div>
                     <p className="about-text">
-                        The IIT Dharwad Library collection consists of nearly 4750+ books in various disciplines. These are arranged subject-wise. It has also acquired a few ISO standards (International Standards Organization) in digital form. At present, the main motto is to build up the Library collection such that it has information resources up to Ph.D. level, including advanced texts and reference materials.
+                        <p>Welcome to our Library Managemnet System (LMS)!</p>
+                        {/* The IIT Dharwad Library collection consists of nearly 4750+ books in various disciplines. These are arranged subject-wise. It has also acquired a few ISO standards (International Standards Organization) in digital form. At present, the main motto is to build up the Library collection such that it has information resources up to Ph.D. level, including advanced texts and reference materials. */}
                         <br />
                         <br />
-                        IIT Dharwad is a Life Member of the prestigious “Current Science Association” of the “Indian Academy of Sciences”, and receiving the “Current Science” journal. It also receives some national newspapers and light reading magazines. Very soon, some popular S&T magazines will be at readers’ disposal, which will make young minds aware of recent happenings in the scientific world.
+                        {/* IIT Dharwad is a Life Member of the prestigious “Current Science Association” of the “Indian Academy of Sciences”, and receiving the “Current Science” journal. It also receives some national newspapers and light reading magazines. Very soon, some popular S&T magazines will be at readers’ disposal, which will make young minds aware of recent happenings in the scientific world. */}
+                        <p>Our LMS offers a range of features to make your library experience more convenient and enjoyable.With our system,you can :</p>
+                        <br />
+                        <ul>
+                            <li>View your borrowed books and their due dates through the "MY Books" option.</li>
+                            <li>Search for books in our catalog using our adavanced search function.</li>
+                            <li>Reserve books in advance to ensure availability.</li>
+                            <li>Click on the IIT Dharwad icon to visit our official website and explore more resources
+
+                            </li>
+
+                        </ul>
+                        <br />
+                        <br/>
+                        <p>Our Goal is to provide a user-friendly and efficient platform for all your library needs.We value your feedback and suggestions, so please don't hesitate to reach out to us for any improvements or ideas you may have.</p>
                         <br />
                         <br />
-                        Happy Learning!
-                        <br />
-                        <br />
-                        Your suggestions for improvement are always welcome!
+                        <p>Thankyou for being a part of the IIT Dharwad Library community!</p>
                     </p>
                 </div>
             </div>

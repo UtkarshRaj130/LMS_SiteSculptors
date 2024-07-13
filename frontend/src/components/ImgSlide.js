@@ -41,15 +41,15 @@ function ImgSlide() {
     <div className="carousel-item">
       <img src={image3} className="d-block w-100" alt="..."/>
       <div className="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
+        <h5>Explore Our Collection </h5>
+        <p>Discover a vast array of books of different Departments,genre,authors,etc.</p>
       </div>
     </div>
     <div className="carousel-item">
       <img src={image1} className="d-block w-100" alt="..."/>
       <div className="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
+        <h5>Discover Our Campus</h5>
+        <p>Explore the beauty of our campus and its facilities.</p>
       </div>
     </div>
   </div>
