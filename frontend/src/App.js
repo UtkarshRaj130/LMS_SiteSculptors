@@ -7,6 +7,8 @@ import StudentLogin from './components/StudentLogin';
 import Modal from './components/Modal';
 import SearchResults from './components/SearchResults';
 import BookDetails from './components/BookDetails'; // Import BookDetails component
+import MyBooks from './components/MyBooks';
+import MyHistory from './components/MyHistory'; // Import MyHistory component
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         } />
         <Route path="/search-results" element={<SearchResults />} />
         <Route path="/book-details/:id" element={<BookDetails />} /> {/* New route for BookDetails */}
+        <Route path="/my-books" element={<MyBooks />} />
+        <Route path="/my-history" element={<MyHistory />} /> {/* New route for MyHistory */}
       </Routes>
     </BrowserRouter>
   );
