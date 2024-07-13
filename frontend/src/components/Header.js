@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../Styles/Header.css';
 import logo from './images/image.png';
 import { FaSearch, FaBars } from 'react-icons/fa';
 import axios from './axiosInstance';
+import { GoogleLogin, googleLogout } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode"; // Correct import statement
+import { AuthContext } from '../context/AuthContext'; // Correct import path for AuthContext
 
 function Header() {
   const [menuToggle, setMenuToggle] = useState(false);
   const [books, setBooks] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext); // Use AuthContext
   const navigate = useNavigate();
   const [filteredBooks, setFilteredBooks] = useState([]);
 
@@ -48,6 +52,12 @@ function Header() {
     }
   };
 
+  const handleLogout = () => {
+    googleLogout();
+    setIsAuthenticated(false);
+    setUser(null);
+  };
+
   return (
     <div className="header">
       <div className="logo-nav-new">
@@ -85,9 +95,23 @@ function Header() {
             </Link>
           </li>
           <li className="option" onClick={() => { closeMenu() }}>
-            <Link to='/student-login'>
-              Sign In
-            </Link>
+            {isAuthenticated ? (
+              <>
+                <span className="hi-username">Hi, {user.given_name}</span>
+                <button className="logout-buuton" onClick={handleLogout}>Logout</button>
+              </>
+            ) : (
+              <GoogleLogin
+                onSuccess={credentialResponse => {
+                  const decoded = jwtDecode(credentialResponse.credential);
+                  setUser(decoded);
+                  setIsAuthenticated(true);
+                }}
+                onError={() => {
+                  console.log('Login Failed');
+                }}
+              />
+            )}
           </li>
         </ul>
       </div>
