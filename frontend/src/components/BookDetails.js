@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import '../Styles/BookDetails.css';
+import { AuthContext } from '../context/AuthContext'; // Import AuthContext
+import axios from '../components/axiosInstance'; // Update import path
 
 function BookDetails() {
     const location = useLocation();
     const book = location.state || {};
+    const { isAuthenticated, user } = useContext(AuthContext); // Use AuthContext
+
+    const HandleReserve = async (bookId) => {
+        if (isAuthenticated) {
+            try {
+                const response = await axios.post('/users/reserve', {
+                    email: user.email,
+                    bookId: bookId,
+                });
+                console.log(response.data); // Debugging output
+                alert(`Book with ID ${bookId} reserved.`);
+            } catch (error) {
+                console.error(error);
+                alert('Error reserving book: ' + error.response.data.message);
+            }
+        } else {
+            alert('Login first to Reserve a Book!');
+        }
+    };
 
     if (!book) {
         return (
@@ -20,12 +41,6 @@ function BookDetails() {
             </div>
         );
     }
-
-    const handleReserve = (bookId) => {
-        console.log(`Book with ID ${bookId} reserved.`);
-        alert(`Book with ID ${bookId} reserved.`);
-        // Implement your logic to reserve the book here (e.g., update database)
-    };
 
     return (
         <div>
@@ -49,7 +64,7 @@ function BookDetails() {
 
                     <button
                         className="reserve-button"
-                        onClick={() => handleReserve(book._id)}
+                        onClick={() => HandleReserve(book._id)} // Ensure bookId is correctly passed
                         disabled={book.count === 0}
                     >
                         Reserve
