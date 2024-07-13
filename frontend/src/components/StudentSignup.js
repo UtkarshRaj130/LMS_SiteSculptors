@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../Styles/StudentSignup.css';
 import { useNavigate } from 'react-router-dom';
 
-function StudentLogin() {
+function StudentSignup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,19 +12,19 @@ function StudentLogin() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const students = [
-      { email: 'student1@example.com', password: 'password123' },
-      { email: 'student2@example.com', password: 'password2' },
-      { email: 'student3@example.com', password: 'password3' },
-    ];
-    students.push({ email, password, name });
-    localStorage.setItem('students', JSON.stringify(students));
-    navigate('/student-login');
+    try {
+      const students = JSON.parse(localStorage.getItem('students')) || [];
+      students.push({ name, email, password });
+      localStorage.setItem('students', JSON.stringify(students));
+      navigate('/student-login');
+    } catch (error) {
+      setError('Sign up failed. Please try again.');
+    }
   };
 
   return (
     <div className='signup-page student-signup'>
-      <div className='studentsignup '>
+      <div className='studentsignup'>
         <form onSubmit={handleSubmit}>
           <h1>Student Sign Up</h1>
           <label htmlFor='name'>Name</label>
@@ -54,7 +54,7 @@ function StudentLogin() {
           <button type="submit">Sign up</button>
           {error && <div style={{ color: 'red' }}>{error}</div>}
           Already have an account?
-          <button onClick={() => navigate(-1)}>Login</button>
+          <button type='button' onClick={() => navigate(-1)}>Login</button>
           <button type='button' onClick={() => navigate(-2)}>Close</button>
         </form>
       </div>
@@ -62,4 +62,4 @@ function StudentLogin() {
   );
 }
 
-export default StudentLogin;
+export default StudentSignup;

@@ -7,6 +7,7 @@ import StudentLogin from './components/StudentLogin';
 import Modal from './components/Modal';
 import SearchResults from './components/SearchResults';
 import BookDetails from './components/BookDetails'; // Import BookDetails component
+import MyBook from './components/MyBook';
 
 function App() {
   return (
@@ -26,6 +27,13 @@ function App() {
         } />
         <Route path="/search-results" element={<SearchResults />} />
         <Route path="/book-details/:id" element={<BookDetails />} /> {/* New route for BookDetails */}
+        <Route path="/mybook/:bookId" element={<MyBook />} />
+        <Route path="/" element={<SearchResults />} />
+        <Route path="/" element={<BookList />} />
+        <Route path="/book/:id" element={<BookDetails />} />
+        <Route path="/reserved-books" element={<ReservedBooks />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

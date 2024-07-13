@@ -1,60 +1,98 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from './Header';
-import '../Styles/BookDetails.css'; // Changed the CSS import to BookDetails.css
+import '../Styles/BookDetails.css';
 
 function BookDetails() {
-    const location = useLocation();
-    const book  = location.state || {};
-    console.log(location.state);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const bookFromLocation = location.state || {};
+  const [book, setBook] = useState(bookFromLocation);
+  const [canReserve, setCanReserve] = useState(true);
+  console.log(location.state);
 
-    if (!book) {
-        return (
-            <div>
-                <Header />
-                <div className="book-details-container">
-                    <h2>Book Details</h2>
-                    <p>Book not found.</p>
-                </div>
-            </div>
-        );
-    }
-
-    const handleReserve = (bookId) => {
-        console.log(`Book with ID ${bookId} reserved.`);
-        alert(`Book with ID ${bookId} reserved.`);
-        // Implement your logic to reserve the book here (e.g., update database)
+  useEffect(() => {
+    // Fetch the number of books the user has already reserved
+    const fetchReservedBooks = async () => {
+      try {
+        const response = await fetch('/api/books/reserved', {
+          headers: {
+            'Authorization': localStorage.getItem('token')
+          }
+        });
+        const reservedBooks = await response.json();
+        if (reservedBooks.length >= 2) {
+          setCanReserve(false);
+        }
+      } catch (error) {
+        console.error('Error fetching reserved books:', error);
+      }
     };
 
+    fetchReservedBooks();
+  }, []);
+
+  if (!book) {
     return (
-        <div>
-            <Header />
-            <div className="book-details-container">
-                <h2>Book Details</h2>
-                <div className="book-details">
-                    <div className="detail-row"><span className="detail-label">Title:</span> {<b>{book.title}</b>}</div>
-                    <div className="detail-row"><span className="detail-label">Author(s):</span> {book.author}</div>
-                    <div className="detail-row"><span className="detail-label">Department:</span> {book.department}</div>
-                    <div className="detail-row"><span className="detail-label">Genre:</span> {book.genre}</div>
-                    <div className="detail-row"><span className="detail-label">Copies Available:</span> {book.count}</div>
-                    <div className="detail-row"><span className="detail-label">Book ID:</span> {book._id}</div>
-                    <div className="detail-row"><span className="detail-label">Vendor:</span> {book.vendor}</div>
-                    <div className="detail-row"><span className="detail-label">Vendor ID:</span> {book.vendor_id}</div>
-                    <div className="detail-row"><span className="detail-label">Publisher:</span> {book.publisher}</div>
-                    <div className="detail-row"><span className="detail-label">Publisher ID:</span> {book.publisher_id}</div>
-                    <div className="detail-row"><span className="detail-label">Description:</span> {book.description}</div>
-                    
-                    <button
-                        className="reserve-button"
-                        onClick={() => handleReserve(book._id)}
-                        disabled={book.count === 0}
-                    >
-                        Reserve
-                    </button>
-                </div>
-            </div>
+      <div>
+        <Header />
+        <div className="book-details-container">
+          <h2>Book Details</h2>
+          <p>Book not found.</p>
         </div>
+      </div>
     );
+  }
+
+  const handleReserve = async (book) => {
+    if (book.count > 0 && canReserve) {
+      try {
+        const response = await fetch('/api/books/reserve', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.getItem('token')
+          },
+          body: JSON.stringify({ bookId: book._id })
+        });
+
+        if (response.ok) {
+          setBook({ ...book, count: book.count - 1 });
+          alert(`Book with ID ${book._id} reserved.`);
+        } else {
+          console.error('Failed to reserve the book');
+          alert('Failed to reserve the book');
+        }
+      } catch (error) {
+        console.error('Error reserving the book:', error);
+        alert('Error reserving the book');
+      }
+    } else {
+      alert('You have already reserved 2 books or no copies available.');
+    }
+  };
+
+  return (
+    <div>
+      <Header />
+      <div className="book-details-container">
+        <h2>Book Details</h2>
+        <div className="book-details">
+          <p><strong>Title:</strong> {book.title}</p>
+          <p><strong>Description:</strong> {book.description}</p>
+          <p><strong>Author:</strong> {book.author}</p>
+          <p><strong>Genre:</strong> {book.genre}</p>
+          <p><strong>Department:</strong> {book.department}</p>
+          <p><strong>Count:</strong> {book.count}</p>
+          <p><strong>Vendor:</strong> {book.vendor}</p>
+          <p><strong>Vendor ID:</strong> {book.vendor_id}</p>
+          <p><strong>Publisher:</strong> {book.publisher}</p>
+          <p><strong>Publisher ID:</strong> {book.publisher_id}</p>
+          <button onClick={() => handleReserve(book)}>Reserve</button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default BookDetails;
