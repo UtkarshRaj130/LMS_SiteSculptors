@@ -8,6 +8,7 @@ import Modal from './components/Modal';
 import SearchResults from './components/SearchResults';
 import BookDetails from './components/BookDetails'; // Import BookDetails component
 
+
 function App() {
   return (
     <BrowserRouter>

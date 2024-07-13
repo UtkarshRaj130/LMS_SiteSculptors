@@ -136,7 +136,7 @@ button[type="submit"]:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px 40px;
+  padding: 0px 30px;
   margin-top: 15px;
   color: #6c1b85ff; /* Ensure the text color matches 'Books' */
 }
