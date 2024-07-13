@@ -1,0 +1,69 @@
+.my-history {
+    padding: 20px;
+    text-align: left; /* Align text to the left */
+    padding-top: 80px; /* Ensure content is visible below the fixed header */
+}
+
+.my-history h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px; /* Add space between the heading and the book list */
+}
+
+.history-card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    gap: 20px; /* Space between cards */
+}
+
+.history-card {
+    width: calc(33.333% - 20px); /* Three cards per row, accounting for gaps */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.history-card-header {
+    background-color: #6c1b85ff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.book-title-myHistory {
+    font-size: 20px;
+    margin: 0;
+    color: white;
+}
+
+.history-card-body {
+    padding: 10px;
+}
+
+.history-card-body p {
+    margin: 10px 0;
+}
+
+.late-return .history-card-body p:nth-child(3) {
+    color: red;
+}
+
+.late-text {
+    color: red;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .history-card {
+        width: calc(50% - 20px); /* Two cards per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .history-card {
+        width: calc(100% - 20px); /* One card per row on very small screens */
+    }
+}

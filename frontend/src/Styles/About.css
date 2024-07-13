@@ -1,44 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
-
-hr{
+hr {
   height: 2px;
-  width:100%;
-  color:white;
-  margin-bottom:0px;
+  width: 100%;
+  color: white;
+  margin-bottom: 0px;
 }
- .about-box {
-  /* padding-top: 10px; */
+
+.about-box {
   background-color: rgb(91, 14, 114);
-  height: 90vh; /* Use 100vh instead of fixed height */
-  /* margin-top: 0; */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .about-title {
-  color:#ffad4a;
+  color: #ffad4a;
   text-align: center;
   font-size: 32px;
   padding: 25px;
   margin-bottom: 20px;
-  margin-top:0px;
+  margin-top: 0px;
 }
 
-.about-img  img {
+.about-img img {
   width: 100%;
   max-width: 700px;
   border-radius: 25px;
   padding: 5px;
   height: 500px;
-  object-fit: cover; /* Add object-fit to ensure image scales properly */
+  object-fit: cover;
 }
 
 .about-data {
   display: grid;
-  grid-template-columns: 1fr; /* Use 1fr instead of fixed width */
+  grid-template-columns: 1fr;
   gap: 20px;
   text-align: center;
 }
@@ -50,35 +48,27 @@ hr{
   padding: 15px;
   color: rgb(220, 225, 219);
   margin: 0;
-  /* text-align: center; */
 }
 
-
 @media screen and (max-width: 768px) {
- .about-box {
-    height: 100vh;
-  }
- .about-data {
+  .about-data {
     grid-template-columns: 1fr;
   }
- .about-data p {
+  .about-data p {
     font-size: 13px;
     margin-left: 16px;
     margin-right: 16px;
   }
 }
 
-/* Desktop View */
 @media screen and (min-width: 768px) {
- .about-box {
-    height: 100vh;
+  .about-data {
+    grid-template-columns: 1fr 1fr; /* Adjust grid columns for desktop view */
+    align-items: center; /* Center align the content vertically */
   }
- .about-data {
-    grid-template-columns: 2fr 1fr; /* Adjust grid columns for desktop view */
-  }
- .about-data p {
+  .about-data p {
     font-size: 15px;
     margin-left: 50px;
     margin-right: 50px;
   }
-} 
+}
