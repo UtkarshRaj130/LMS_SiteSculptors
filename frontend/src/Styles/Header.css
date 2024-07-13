@@ -102,24 +102,22 @@ button[type="submit"]:hover {
 }
 
 .nav-options {
-  width: 40%;
-  height: 100%;
-  padding-left: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style-type: none;
-  margin-bottom: 15px !important;
+  margin: 0;
+  padding: 0;
   color: #6c1b85ff;
   white-space: nowrap;
+  transition: all 0.3s ease; /* Adjusted transition time for smoother animation */
 }
 
 .option {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px 40px;
-  margin-top: 15px;
+  padding: 0 20px;
   color: #6c1b85ff;
 }
 
@@ -136,10 +134,6 @@ button[type="submit"]:hover {
   transition: all ease 0.5s;
   text-decoration: underline;
   text-decoration-color: #6c1b85ff;
-}
-
-.option:hover {
-  color: rgb(6, 240, 170);
 }
 
 .nav-options a {
@@ -162,66 +156,153 @@ a {
 }
 
 .mobile-menu {
-  display: block;
+  display: none;
 }
 
-@media (max-width: 480px) {
-  .logo img {
-    height: 20px;
-  }
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  color: rgb(233, 83, 75);
+  background-color: rgb(246, 233, 202);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 15px 0 0; /* Moved the menu button to the right edge */
 }
 
 @media (max-width: 768px) {
   .header {
-    padding: 0px 10px;
-    display: grid;
-    grid-template-columns: 10% 60%;
+    padding: 0 10px;
   }
 
   .logo img {
     height: 30px;
   }
 
+  .logo-nav-new {
+    justify-content: flex-start;
+  }
+
+  .nav-right {
+    justify-content: flex-end;
+  }
+
   .nav-options {
-    display: flex;
-    width: 100%;
-    height: 280px;
-    position: absolute;
+    display: none;
+    position: fixed;
     top: 60px;
-    left: -100%;
-    opacity: 0;
-    transition: all 0.5s ease;
+    right: 0;
+    width: 60%;
+    height: calc(100vh - 60px);
+    background-color: #cf8122;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     list-style-type: none;
-    grid-gap: 0px;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease; /* Smooth transition for opening */
+    transform: translateX(100%); /* Initially off-screen */
+    z-index: 100;
   }
 
   .nav-options.active {
-    background: black;
-    left: 0;
-    opacity: 1;
-    transition: all 0.5s ease;
-    z-index: 100;
-    align-content: center;
-    padding-left: 0px;
-  }
-
-  .menu-icon {
-    width: 45px;
-    height: 45px;
-    color: rgb(233, 83, 75);
-    padding: 2px;
-    background-color: rgb(246, 233, 202);
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0px 5px 0px 10px;
+    display: flex;
+    transform: translateX(0); /* Move the menu into view */
   }
 
   .option {
-    display: flex;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .search {
+    width: 50%;
+    margin-right: 20px;
+}
+
+  .search-input {
+    width: 80%;
+  }
+
+  .search button[type="button"] {
+    width: 20%;
+  }
+}
+
+@media (max-width: 432px) {
+  .header {
+    padding: 0 10px;
+    height: 50px;
+  }
+
+  .logo img {
+    height: 23px;
+  }
+
+  .logo-nav-new {
+    justify-content: flex-start;
+  }
+
+  .nav-right {
+    justify-content: flex-end;
+  }
+
+  .nav-options {
+    display: none;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 60%;
+    height: calc(100vh - 60px);
+    background-color: #cf8122;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 10vw;
-    padding: 30px 0px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.3s ease; /* Smooth transition for opening */
+    transform: translateX(100%); /* Initially off-screen */
+    z-index: 100;
+  }
+
+  .nav-options.active {
+    display: flex;
+    transform: translateX(0); /* Move the menu into view */
+  }
+
+  .option {
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .search {
+    width: 50%;
+    margin-right: 20px;
+}
+
+  .search-input {
+    width: 80%;
+  }
+
+  .search button[type="button"] {
+    width: 20%;
+  }
+
+  .logo-nav-new h1 {
+    font-size: 16px;
+    color: rgb(250, 240, 253);
+    margin: 0;
+    margin-left: -3px;
   }
 }

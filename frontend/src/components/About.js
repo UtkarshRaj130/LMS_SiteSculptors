@@ -1,13 +1,10 @@
-import React from 'react'
-import '../Styles/About.css'
-
+import React from 'react';
+import '../Styles/About.css';
 
 function About() {
-  return (
-
-    
-         <div className='about-box'>
-            {/* <hr  style={{color:'white',height:'2px'}}/> */}
+    return (
+        <div className='about-box'>
+            {/* <hr style={{color:'white',height:'2px'}}/> */}
             <h2 className="about-title">About the Library</h2>
             <div className="about-data">
                 <div className="about-img">
@@ -15,28 +12,21 @@ function About() {
                 </div>
                 <div>
                     <p className="about-text">
-                    Welcome to our Library Management System (LMS)!. Whether you’re a librarian, a book lover, or a curious learner, our LMS aims to enhance your experience by organizing and providing seamless access to our extensive collection of books, journals, and media.<br/>
-                        <br/>
-                        Contrary to popular belief, Lorem Ipsum is not simply random text. 
-                        It has roots in a piece of classical Latin literature from 45 BC, 
-                        making it over 2000 years old. Richard McClintock, a Latin professor 
-                        at Hampden-Sydney College in Virginia, looked up one of the more obscure 
-                        Latin words, consectetur, from a Lorem Ipsum passage.<br/>
-                        <br/>
-                        Have a great experience in our LMS where you can search for books, borrow and return .
-                        <br/>
-                        <br/>
+                        The IIT Dharwad Library collection consists of nearly 4750+ books in various disciplines. These are arranged subject-wise. It has also acquired a few ISO standards (International Standards Organization) in digital form. At present, the main motto is to build up the Library collection such that it has information resources up to Ph.D. level, including advanced texts and reference materials.
+                        <br />
+                        <br />
+                        IIT Dharwad is a Life Member of the prestigious “Current Science Association” of the “Indian Academy of Sciences”, and receiving the “Current Science” journal. It also receives some national newspapers and light reading magazines. Very soon, some popular S&T magazines will be at readers’ disposal, which will make young minds aware of recent happenings in the scientific world.
+                        <br />
+                        <br />
+                        Happy Learning!
+                        <br />
+                        <br />
                         Your suggestions for improvement are always welcome!
                     </p>
                 </div>
             </div>
         </div>
-
-
-
-
-    
-  )
+    );
 }
 
-export default About
+export default About;

@@ -1,16 +1,15 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../Styles/Header.css';
 import logo from './images/image.png';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaBars } from 'react-icons/fa';
 import axios from './axiosInstance';
 
 function Header() {
-  const [menutoggle, setMenutoggle] = useState(false);
+  const [menuToggle, setMenuToggle] = useState(false);
   const [books, setBooks] = useState([]);
-  const [searchQuery, setsearchQuery] = useState('');
-  const navigate = useNavigate(); // Added navigate function
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
   const [filteredBooks, setFilteredBooks] = useState([]);
 
   useEffect(() => {
@@ -28,12 +27,11 @@ function Header() {
   }, []);
 
   const closeMenu = () => {
-    setMenutoggle(false);
+    setMenuToggle(false);
   };
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Filter dummy data based on the search query (title or author)
     const filteredResults = books.filter(book =>
       book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       book.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -41,7 +39,6 @@ function Header() {
       book.genre.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    // Navigate to the SearchResults page with the search results as state
     navigate('/search-results', { state: { searchResults: filteredResults } });
   };
 
@@ -55,7 +52,7 @@ function Header() {
     <div className="header">
       <div className="logo-nav-new">
         <div className="logo">
-          <a href="https://iitdh.ac.in"><img src={logo} alt='iitdh logo'></img></a>
+          <a href="https://iitdh.ac.in"><img src={logo} alt='iitdh logo' /></a>
         </div>
         <Link to="/" onClick={closeMenu}>
           <h1>LIBRARY</h1>
@@ -68,12 +65,15 @@ function Header() {
             type='text'
             placeholder='Search by Book / Author / Department / Genre'
             value={searchQuery}
-            onChange={(e) => setsearchQuery(e.target.value)}
+            onChange={(e) => setSearchQuery(e.target.value)}
             onKeyDown={handleKeyDown}
           />
           <button type="button" onClick={handleSearch}><FaSearch id='search-icon' /></button>
         </div>
-        <ul className={menutoggle ? "nav-options active" : "nav-options"}>
+        <div className="mobile-menu" onClick={() => setMenuToggle(!menuToggle)}>
+          <FaBars className="menu-icon" />
+        </div>
+        <ul className={menuToggle ? "nav-options active" : "nav-options"}>
           <li className="option" onClick={() => { closeMenu() }}>
             <Link to='/my-books'>
               My Books
