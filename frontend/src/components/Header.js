@@ -98,7 +98,7 @@ function Header() {
             {isAuthenticated ? (
               <>
                 <span className="hi-username">Hi, {user.given_name}</span>
-                <button className="logout-buuton" onClick={handleLogout}>Logout</button>
+                <button className="logout-button" onClick={handleLogout}>Logout</button>
               </>
             ) : (
               <GoogleLogin
