@@ -102,10 +102,20 @@ function Header() {
               </>
             ) : (
               <GoogleLogin
-                onSuccess={credentialResponse => {
+                onSuccess={async (credentialResponse) => {
                   const decoded = jwtDecode(credentialResponse.credential);
                   setUser(decoded);
                   setIsAuthenticated(true);
+
+                  // Register or find the user in the backend
+                  try {
+                    await axios.post('/users/register', {
+                      name: decoded.name,
+                      email: decoded.email,
+                    });
+                  } catch (error) {
+                    console.error('Error registering user:', error);
+                  }
                 }}
                 onError={() => {
                   console.log('Login Failed');

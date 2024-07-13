@@ -53,15 +53,16 @@ export const getAllBooks = async (req, res) => {
     const books = await Book.find();
     res.json(books);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
 };
 
 export const addBook = async (req, res) => {
-  const { title, description, author, genre,department,count,vendor,vendor_id,publisher,publisher_id } = req.body;
+  const { title, description, author, genre, department, count, vendor, vendor_id, publisher, publisher_id } = req.body;
 
   try {
-    const book = new Book({
+    const newBook = new Book({
       title,
       description,
       author,
@@ -74,10 +75,12 @@ export const addBook = async (req, res) => {
       publisher_id,
     });
 
-    await book.save();
+    await newBook.save();
     res.status(201).json({ message: 'Book added successfully' });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
 };
+
 
