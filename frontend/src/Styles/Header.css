@@ -113,6 +113,20 @@ button[type="submit"]:hover {
   transition: all 0.3s ease; /* Adjusted transition time for smoother animation */
 }
 
+.hi-username {
+  color: rgb(111, 32, 150);
+  font-weight: 700;
+  font-size: 19px;
+  padding-right: 6%;
+  /* padding-top: 2%; */
+}
+.logout-button {
+  background-color: #6c1b85ff;;
+  width: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 .option {
   display: flex;
   justify-content: center;
