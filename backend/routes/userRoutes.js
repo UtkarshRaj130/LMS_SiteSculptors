@@ -5,6 +5,14 @@ import Book from '../models/Book.js';
 
 const router = express.Router();
 
+// Function to format date as YYYY-MM-DD
+const formatDate = (date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
 // Register or find a user
 router.post(
   '/register',
@@ -24,35 +32,53 @@ router.post(
 
 // Reserve a book
 router.post(
-    '/reserve',
-    asyncHandler(async (req, res) => {
-        const { email, bookId } = req.body; // Ensure bookId is correctly extracted
+  '/reserve',
+  asyncHandler(async (req, res) => {
+    const { email, theBook } = req.body;
 
-        try {
-            const user = await User.findOne({ email });
-            const book = await Book.findById(bookId);
+    try {
+      const user = await User.findOne({ email });
+      const book = await Book.findById(theBook._id);
 
-            if (!user || !book) {
-                return res.status(404).json({ message: 'User or Book not found' });
-            }
+      if (!user || !book) {
+        return res.status(404).json({ message: 'User or Book not found' });
+      }
 
-            if (book.count === 0) {
-                return res.status(400).json({ message: 'No copies available' });
-            }
+      if (book.count === 0) {
+        return res.status(400).json({ message: 'No copies available' });
+      }
 
-            if (!user.reservedBooks.includes(bookId)) {
-                user.reservedBooks.push(bookId);
-                book.count -= 1;
-                await user.save();
-                await book.save();
-            }
+      // Check if the book is already reserved by the user
+      const isBookReserved = user.reservedBooks.some(
+        reservedBook => reservedBook._id.equals(book._id)
+      );
 
-            res.status(200).json({ message: 'Book reserved successfully' });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ message: 'Server error' });
-        }
-    })
+      if (!isBookReserved) {
+        const now = new Date();
+        const reservingTime = now.toTimeString().split(' ')[0]; // Get HH:MM:SS
+        const reservingDate = formatDate(now); // Format date as YYYY-MM-DD
+        const dueDate = formatDate(new Date(now.getTime() + 20 * 24 * 60 * 60 * 1000)); // 20 days ahead
+
+        const bookWithTimestamps = {
+          ...book.toObject(),
+          reservingTime,
+          reservingDate,
+          dueDate,
+        };
+
+        user.reservedBooks.push(bookWithTimestamps);
+        book.count -= 1;
+        await user.save();
+        await book.save();
+        res.status(201).json({ message: 'Book reserved successfully' });
+      } else {
+        res.status(200).json({ message: 'You have already reserved a copy of that book' });
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  })
 );
 
 export default router;

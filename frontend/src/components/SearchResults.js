@@ -12,23 +12,29 @@ function SearchResults() {
   const [selectedDepartment, setSelectedDepartment] = useState(''); // Add state for selected department
 
   const { isAuthenticated, user } = useContext(AuthContext); // Use AuthContext
-  const HandleReserve = async (bookId) => {
+  const HandleReserve = async (theBook) => {
     if (isAuthenticated) {
-        try {
-            const response = await axios.post('/users/reserve', {
-                email: user.email,
-                bookId: bookId,
-            });
-            console.log(response.data); // Debugging output
-            alert(`Book with ID ${bookId} reserved.`);
-        } catch (error) {
-            console.error(error);
-            alert('Error reserving book: ' + error.response.data.message);
+      try {
+        const response = await axios.post('/users/reserve', {
+          email: user.email,
+          theBook: theBook,
+        });
+        console.log(response); // Debugging output
+        if (response.status === 201) {
+          alert(`Book with ID ${theBook._id} reserved.`);
+        } else {
+          alert(`You have already reserved a copy of ${theBook._id}`);
         }
+      } catch (error) {
+        console.error(error);
+        alert('Error reserving book: ' + error.response.data.message);
+      }
     } else {
-        alert('Login first to Reserve a Book!');
+      alert('Login first to Reserve a Book!');
     }
-};
+  };  
+  
+
 
   const handleDepartmentChange = (event) => {
     setSelectedDepartment(event.target.value);
@@ -101,7 +107,7 @@ function SearchResults() {
                 </Link>
                 <button
                   className="reserve-button-search"
-                  onClick={() => HandleReserve(book._id)}
+                  onClick={() => HandleReserve(book)}
                   disabled={book.copiesAvailable === 0}
                 >
                   Reserve
