@@ -15,6 +15,8 @@ function Header() {
   const { isAuthenticated, setIsAuthenticated, user, setUser } = useContext(AuthContext); // Use AuthContext
   const navigate = useNavigate();
   const [filteredBooks, setFilteredBooks] = useState([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -28,6 +30,19 @@ function Header() {
     };
 
     fetchBooks();
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 740);
+    };
+  
+    window.addEventListener('resize', handleResize);
+  
+    // Cleanup function to remove event listener when component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const closeMenu = () => {
@@ -73,7 +88,7 @@ function Header() {
           <input
             className='search-input'
             type='text'
-            placeholder='Search by Book / Author / Department / Genre'
+            placeholder={isMobile ? 'Search' : 'Search by Title / Author / Department / Genre'}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -97,7 +112,7 @@ function Header() {
           <li className="option" onClick={() => { closeMenu() }}>
             {isAuthenticated ? (
               <>
-                <span className="hi-username">Hi, {user.given_name}</span>
+                <span className="hi-username">Hi, {user.given_name.charAt(0).toUpperCase() + user.given_name.slice(1).toLowerCase()}</span>
                 <button className="logout-button" onClick={handleLogout}>Logout</button>
               </>
             ) : (
