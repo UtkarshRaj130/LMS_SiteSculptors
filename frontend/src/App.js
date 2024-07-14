@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import StudentSignup from './components/StudentSignup';
+import StudentSignup from './components/StudentSignupDEL';
 import Home from './components/Home';
 import Header from './components/Header';
 import StudentLogin from './components/StudentLogin';
