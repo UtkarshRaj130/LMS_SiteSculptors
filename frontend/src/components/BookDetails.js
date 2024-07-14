@@ -12,25 +12,36 @@ function BookDetails() {
     const { isAuthenticated, user } = useContext(AuthContext); // Use AuthContext
     const HandleReserve = async (theBook) => {
         if (isAuthenticated) {
+          const userConfirmed = window.confirm(`Are you sure you want to Reserve the book: ${theBook.title}`);
+          if (userConfirmed) {
+            // User clicked "OK"
             try {
-                const response = await axios.post('/users/reserve', {
-                    email: user.email,
-                    theBook: theBook,
-                });
-                console.log(response); // Debugging output
-                if (response.status === 201) {
-                    alert(`Book with ID ${theBook._id} reserved.`);
-                } else {
-                    alert(`You have already reserved a copy of ${theBook._id}`);
-                }
+              const response = await axios.post('/users/reserve', {
+                email: user.email,
+                theBook: theBook,
+              });
+              console.log(response); // Debugging output
+              if (response.status === 201) {
+                alert(`Book : ${theBook.title} with Publisher ID ${theBook.publisher_id} reserved.`);
+              } else {
+                alert(`You already have a reserved copy of ${theBook.title}`);
+              }
             } catch (error) {
-                console.error(error);
-                alert('Error reserving book: ' + error.response.data.message);
+              console.error(error);
+              const errorMessage = error.response?.data?.message || 'Error reserving book';
+              alert(`Error reserving book: ${errorMessage}`);
             }
-        } else {
-            alert('Login first to Reserve a Book!');
+            console.log("User confirmed!");
+          }
+          else {
+            // User clicked "Cancel"
+            console.log("User canceled.");
+          }
         }
-    };
+        else {
+          alert('Login first to Reserve a Book!');
+        }
+      };
 
 
     if (!book) {
