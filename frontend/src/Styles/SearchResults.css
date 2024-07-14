@@ -77,7 +77,6 @@
 .book-department {
     font-weight: bold; /* Make book title bold */
     color: rgb(215, 38, 174); /* Add color to the book title */
-    margin-right: 10px;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -85,7 +84,6 @@
 .book-genre {
     font-weight: bold; /* Make book title bold */
     color: rgb(0, 164, 39); /* Add color to the book title */
-    margin-right: 10px;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -126,11 +124,6 @@
 .reserve-button:hover:enabled {
     background-color: #a86007;
 }
-
-
-
-
-
 
 
 .filter-container {

@@ -34,21 +34,21 @@ function ImgSlide() {
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img src={image2} className="d-block w-100" alt="Library"/>
-          <div className="carousel-caption d-none d-md-block">
+          <div className="carousel-caption">
             <h3>Library Status</h3>
             <p>{libraryStatus}</p>
           </div>
         </div>
         <div className="carousel-item">
           <img src={image3} className="d-block w-100" alt="Library Collection"/>
-          <div className="carousel-caption d-none d-md-block">
+          <div className="carousel-caption">
             <h5>Explore Our Collection</h5>
             <p>Discover a vast array of books of different departments, genres, authors, etc.</p>
           </div>
         </div>
         <div className="carousel-item">
           <img src={image1} className="d-block w-100" alt="Campus"/>
-          <div className="carousel-caption d-none d-md-block">
+          <div className="carousel-caption">
             <h5>Discover Our Campus</h5>
             <p>Explore the beauty of our campus and its facilities.</p>
           </div>
