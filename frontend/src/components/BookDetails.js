@@ -8,17 +8,21 @@ import axios from '../components/axiosInstance'; // Update import path
 function BookDetails() {
     const location = useLocation();
     const book = location.state || {};
-    const { isAuthenticated, user } = useContext(AuthContext); // Use AuthContext
 
-    const HandleReserve = async (bookId) => {
+    const { isAuthenticated, user } = useContext(AuthContext); // Use AuthContext
+    const HandleReserve = async (theBook) => {
         if (isAuthenticated) {
             try {
                 const response = await axios.post('/users/reserve', {
                     email: user.email,
-                    bookId: bookId,
+                    theBook: theBook,
                 });
-                console.log(response.data); // Debugging output
-                alert(`Book with ID ${bookId} reserved.`);
+                console.log(response); // Debugging output
+                if (response.status === 201) {
+                    alert(`Book with ID ${theBook._id} reserved.`);
+                } else {
+                    alert(`You have already reserved a copy of ${theBook._id}`);
+                }
             } catch (error) {
                 console.error(error);
                 alert('Error reserving book: ' + error.response.data.message);
@@ -27,6 +31,7 @@ function BookDetails() {
             alert('Login first to Reserve a Book!');
         }
     };
+
 
     if (!book) {
         return (
@@ -64,7 +69,7 @@ function BookDetails() {
 
                     <button
                         className="reserve-button"
-                        onClick={() => HandleReserve(book._id)} // Ensure bookId is correctly passed
+                        onClick={() => HandleReserve(book)} // Ensure bookId is correctly passed
                         disabled={book.count === 0}
                     >
                         Reserve

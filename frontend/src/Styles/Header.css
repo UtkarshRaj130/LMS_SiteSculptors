@@ -115,14 +115,14 @@ button[type="submit"]:hover {
 }
 
 .hi-username {
-  color: rgb(111, 32, 150);
+  color: rgb(72, 15, 100);
   font-weight: 800;
   font-size: 19px;
   padding-right: 6%;
   /* padding-top: 2%; */
 }
 .logout-button {
-  background-color: #6c1b85ff;;
+  background-color: rgb(113, 19, 141);;
   width: auto;
   padding-left: 5%;
   padding-right: 5%;

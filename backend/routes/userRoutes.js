@@ -81,4 +81,21 @@ router.post(
   })
 );
 
+router.get(
+  '/reservedBooks',
+  asyncHandler(async (req, res) => {
+    const { email } = req.query;
+    console.log(`Fetching reserved books for email: ${email}`);
+    const user = await User.findOne({ email });
+    if (!user) {
+      console.error('User not found');
+      res.status(404).json({ message: 'User not found' });
+    } else {
+      res.status(200).json(user.reservedBooks);
+      console.log('Reserved books fetched successfully:', user.reservedBooks);
+    }
+  })
+);
+
+
 export default router;
