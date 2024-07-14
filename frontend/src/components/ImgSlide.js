@@ -30,7 +30,7 @@ function ImgSlide() {
   }, []);
 
   return (
-    <div id="carouselExampleCaptions" className="carousel slide">
+    <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img src={image2} className="d-block w-100" alt="Library"/>
