@@ -60,7 +60,7 @@ function MyBooks() {
     fetchReservedBooks();
   }, [user, isAuthenticated]);
 
-  if (loading) return <p>Loading...</p>;
+  // if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching books: {error.message}</p>;
 
   if (!isAuthenticated) {
@@ -72,9 +72,9 @@ function MyBooks() {
   return (
     <div>
       <div className="my-books">
-        <h2>My Reserved Books</h2>
+        <h2 className='my-reserved-books'>My Reserved Books</h2>
         {sortedReservedBooks.length === 0 ? (
-          <p>No books reserved.</p>
+          <p className='no-books-reserved'>No books reserved.</p>
         ) : (
           <div className="book-card-container">
             {sortedReservedBooks.map((book) => (
