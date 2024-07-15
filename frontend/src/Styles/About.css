@@ -41,6 +41,10 @@ hr {
   text-align: center;
 }
 
+ul {
+  margin-inline-start: inherit;
+}
+
 .about-data p {
   font-size: 15px;
   font-family: 'Poppins', sans-serif;
@@ -55,7 +59,7 @@ hr {
     grid-template-columns: 1fr;
   }
   .about-data p {
-    font-size: 13px;
+    font-size: 16px;
     margin-left: 16px;
     margin-right: 16px;
   }
