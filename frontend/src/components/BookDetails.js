@@ -12,7 +12,19 @@ function BookDetails() {
     const { isAuthenticated, user } = useContext(AuthContext); // Use AuthContext
     const HandleReserve = async (theBook) => {
         if (isAuthenticated) {
-          const userConfirmed = window.confirm(`Are you sure you want to Reserve the book: ${theBook.title}`);
+          try {
+            const response = await axios.get(`/users/reservedBooksCount?email=${user.email}`);
+            if (response.data.count >= 2) {
+              alert('You can only reserve up to 2 books at a time.');
+              return;
+            }
+          } catch (error) {
+            console.error('Error checking reserved book count:', error);
+            alert('Error checking reserved book count.');
+            return;
+          }
+
+          const userConfirmed = window.confirm(`Are you sure you want to reserve the book: ${theBook.title}`);
           if (userConfirmed) {
             // User clicked "OK"
             try {
@@ -22,7 +34,7 @@ function BookDetails() {
               });
               console.log(response); // Debugging output
               if (response.status === 201) {
-                alert(`Book : ${theBook.title} with Publisher ID ${theBook.publisher_id} reserved.`);
+                alert(`Book: ${theBook.title} with Publisher ID ${theBook.publisher_id} reserved.`);
               } else {
                 alert(`You already have a reserved copy of ${theBook.title}`);
               }
@@ -39,10 +51,9 @@ function BookDetails() {
           }
         }
         else {
-          alert('Login first to Reserve a Book!');
+          alert('Login first to reserve a book!');
         }
       };
-
 
     if (!book) {
         return (
@@ -92,3 +103,4 @@ function BookDetails() {
 }
 
 export default BookDetails;
+

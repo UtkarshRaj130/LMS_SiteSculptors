@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Header from './Header'; // Import Header component
 import '../Styles/SearchResults.css'; // Import CSS for SearchResults
@@ -8,24 +8,50 @@ import axios from '../components/axiosInstance'; // Update import path
 function SearchResults() {
   const location = useLocation();
   const { searchResults } = location.state || { searchResults: [] };
-
-  const [selectedDepartment, setSelectedDepartment] = useState(''); // Add state for selected department
+  const [reservedBookCount, setReservedBookCount] = useState(0); // State to track reserved book count
+  const [selectedDepartment, setSelectedDepartment] = useState(''); // State for selected department
 
   const { isAuthenticated, user } = useContext(AuthContext); // Use AuthContext
 
+  useEffect(() => {
+    const fetchReservedBookCount = async () => {
+      if (isAuthenticated && user) {
+        try {
+          const response = await axios.get(`/users/reservedBooksCount?email=${user.email}`);
+          setReservedBookCount(response.data.count);
+        } catch (error) {
+          console.error('Error fetching reserved book count:', error);
+        }
+      }
+    };
+
+    fetchReservedBookCount();
+  }, [isAuthenticated, user]);
+
   const HandleReserve = async (theBook) => {
     if (isAuthenticated) {
-      const userConfirmed = window.confirm(`Are you sure you want to Reserve the book: ${theBook.title}`);
+      try {
+        const response = await axios.get(`/users/reservedBooksCount?email=${user.email}`);
+        if (response.data.count >= 2) {
+          alert('You can only reserve up to 2 books at a time.');
+          return;
+        }
+      } catch (error) {
+        console.error('Error checking reserved book count:', error);
+        alert('Error checking reserved book count.');
+        return;
+      }
+      
+      const userConfirmed = window.confirm(`Are you sure you want to reserve the book: ${theBook.title}`);
       if (userConfirmed) {
-        // User clicked "OK"
         try {
           const response = await axios.post('/users/reserve', {
             email: user.email,
             theBook: theBook,
           });
-          console.log(response); // Debugging output
           if (response.status === 201) {
-            alert(`Book : ${theBook.title} with Publisher ID ${theBook.publisher_id} reserved.`);
+            alert(`Book: ${theBook.title} with Publisher ID ${theBook.publisher_id} reserved.`);
+            setReservedBookCount(reservedBookCount + 1); // Increment the reserved book count
           } else {
             alert(`You already have a reserved copy of ${theBook.title}`);
           }
@@ -34,15 +60,9 @@ function SearchResults() {
           const errorMessage = error.response?.data?.message || 'Error reserving book';
           alert(`Error reserving book: ${errorMessage}`);
         }
-        console.log("User confirmed!");
       }
-      else {
-        // User clicked "Cancel"
-        console.log("User canceled.");
-      }
-    }
-    else {
-      alert('Login first to Reserve a Book!');
+    } else {
+      alert('Login first to reserve a book!');
     }
   };
 
