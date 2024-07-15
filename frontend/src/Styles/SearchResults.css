@@ -73,11 +73,9 @@
     align-items: center;
 }
 
-
 .book-department {
     font-weight: bold; /* Make book title bold */
     color: rgb(215, 38, 174); /* Add color to the book title */
-    margin-right: 10px;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -85,7 +83,6 @@
 .book-genre {
     font-weight: bold; /* Make book title bold */
     color: rgb(0, 164, 39); /* Add color to the book title */
-    margin-right: 10px;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -115,23 +112,16 @@
     border-radius: 5px;
     cursor: pointer;
     text-align: center; /* Center text horizontally */
-    /* transition: background-color 0.3s ease; */
 }
 
-.reserve-button:disabled {
-    background-color: #ccc;
+.reserve-button-search:disabled {
+    background-color: #ccc; /* Gray out the button */
     cursor: not-allowed;
 }
 
-.reserve-button:hover:enabled {
+.reserve-button-search:hover:enabled {
     background-color: #a86007;
 }
-
-
-
-
-
-
 
 .filter-container {
     margin-bottom: 20px; /* Add space between filter and book list */
@@ -143,15 +133,15 @@
     border-radius: 5px;
     background-color: #f5f5f5; /* Add background color to the filter container */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+}
   
-  .filter-container label {
+.filter-container label {
     font-weight: bold;
     margin-right: 10px;
     color:#b5731d;
-  }
+}
   
-  .filter-container select {
+.filter-container select {
     width: 20%; /* Set width for the select element */
     height: 70%;
     padding: 10px;
@@ -160,15 +150,24 @@
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
-  }
+}
   
-  .filter-container select:focus {
+.filter-container select:focus {
     border-color: #929090;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
+}
   
-  .filter-container select option {
+.filter-container select option {
     padding: 10px;
     font-size: 16px;
-  }
-  
+}
+
+/* Centering the message for unauthenticated users */
+.not-logged-in-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* Adjust the height as needed */
+    font-size: 24px;
+    color: #333;
+}
