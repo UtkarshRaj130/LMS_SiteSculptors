@@ -81,6 +81,24 @@ router.post(
   })
 );
 
+// Endpoint to get the count of reserved books for a user
+router.get(
+  '/reservedBooksCount',
+  asyncHandler(async (req, res) => {
+    const { email } = req.query;
+    try {
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+      res.status(200).json({ count: user.reservedBooks.length });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Error fetching reserved books count' });
+    }
+  })
+);
+
 router.get(
   '/reservedBooks',
   asyncHandler(async (req, res) => {
@@ -96,6 +114,5 @@ router.get(
     }
   })
 );
-
 
 export default router;
