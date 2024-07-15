@@ -14,8 +14,8 @@ function BookDetails() {
         if (isAuthenticated) {
           try {
             const response = await axios.get(`/users/reservedBooksCount?email=${user.email}`);
-            if (response.data.count >= 2) {
-              alert('You can only reserve up to 2 books at a time.');
+            if (response.data.count >= 4) {
+              alert('You can only reserve up to 4 books at a time.');
               return;
             }
           } catch (error) {
