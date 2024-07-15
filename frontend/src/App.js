@@ -16,7 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/student-login" element={
+        {/* <Route path="/student-login" element={
           <Modal>
             <StudentLogin />
           </Modal>
@@ -25,7 +25,7 @@ function App() {
           <Modal>
             <StudentSignup />
           </Modal>
-        } />
+        } /> */}
         <Route path="/search-results" element={<SearchResults />} />
         <Route path="/book-details/:id" element={<BookDetails />} /> {/* New route for BookDetails */}
         <Route path="/my-books" element={<MyBooks />} />

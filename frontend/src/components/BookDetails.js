@@ -8,25 +8,41 @@ import axios from '../components/axiosInstance'; // Update import path
 function BookDetails() {
     const location = useLocation();
     const book = location.state || {};
-    const { isAuthenticated, user } = useContext(AuthContext); // Use AuthContext
 
-    const HandleReserve = async (bookId) => {
+    const { isAuthenticated, user } = useContext(AuthContext); // Use AuthContext
+    const HandleReserve = async (theBook) => {
         if (isAuthenticated) {
+          const userConfirmed = window.confirm(`Are you sure you want to Reserve the book: ${theBook.title}`);
+          if (userConfirmed) {
+            // User clicked "OK"
             try {
-                const response = await axios.post('/users/reserve', {
-                    email: user.email,
-                    bookId: bookId,
-                });
-                console.log(response.data); // Debugging output
-                alert(`Book with ID ${bookId} reserved.`);
+              const response = await axios.post('/users/reserve', {
+                email: user.email,
+                theBook: theBook,
+              });
+              console.log(response); // Debugging output
+              if (response.status === 201) {
+                alert(`Book : ${theBook.title} with Publisher ID ${theBook.publisher_id} reserved.`);
+              } else {
+                alert(`You already have a reserved copy of ${theBook.title}`);
+              }
             } catch (error) {
-                console.error(error);
-                alert('Error reserving book: ' + error.response.data.message);
+              console.error(error);
+              const errorMessage = error.response?.data?.message || 'Error reserving book';
+              alert(`Error reserving book: ${errorMessage}`);
             }
-        } else {
-            alert('Login first to Reserve a Book!');
+            console.log("User confirmed!");
+          }
+          else {
+            // User clicked "Cancel"
+            console.log("User canceled.");
+          }
         }
-    };
+        else {
+          alert('Login first to Reserve a Book!');
+        }
+      };
+
 
     if (!book) {
         return (
@@ -64,7 +80,7 @@ function BookDetails() {
 
                     <button
                         className="reserve-button"
-                        onClick={() => HandleReserve(book._id)} // Ensure bookId is correctly passed
+                        onClick={() => HandleReserve(book)} // Ensure bookId is correctly passed
                         disabled={book.count === 0}
                     >
                         Reserve

@@ -112,7 +112,7 @@ function Header() {
           <li className="option" onClick={() => { closeMenu() }}>
             {isAuthenticated ? (
               <>
-                <span className="hi-username">Hi, {user.given_name.charAt(0).toUpperCase() + user.given_name.slice(1).toLowerCase()}</span>
+                <span className="hi-username">Hi, {user.given_name/* .charAt(0).toUpperCase() + user.given_name.slice(1).toLowerCase() */}</span>
                 <button className="logout-button" onClick={handleLogout}>Logout</button>
               </>
             ) : (
