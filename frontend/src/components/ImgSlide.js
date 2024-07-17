@@ -9,10 +9,10 @@ function ImgSlide() {
 
   useEffect(() => {
     const checkLibraryStatus = () => {
-      const currentTime = new Date().getHours();
+      const currentTime = (new Date().getHours())-5.5;
       const currentDay = new Date().getDay();
 
-      if (currentDay !== 0 && currentDay !== 6 && currentTime >= 9 && currentTime <= 18) {
+      if (currentDay !== 0 && currentDay !== 6 && currentTime >= 9 && currentTime < 18) {
         setLibraryStatus('Library is currently open (open from 9 am to 6 pm)');
       } else if (currentDay === 0 || currentDay === 6) {
         setLibraryStatus('Library is closed on Weekends');
