@@ -50,7 +50,6 @@ function Header() {
   };
 
   const handleSearch = (e) => {
-    e.preventDefault();
     const filteredResults = books.filter(book =>
       book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       book.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -84,7 +83,7 @@ function Header() {
         </Link>
       </div>
       <div className='nav-right'>
-        <div className='search' onSubmit={handleSearch}>
+        <div className='search' >
           <input
             className='search-input'
             type='text'
