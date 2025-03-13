@@ -17,7 +17,7 @@ function ImgSlide() {
       } else if (currentDay === 0 || currentDay === 6) {
         setLibraryStatus('Library is closed on Weekends');
       } else if (!(currentTime >= 9 && currentTime <= 18)) {
-        setLibraryStatus('Library is currently closed (open from 9 am to 6 pm)');
+        setLibraryStatus('Library is currently closed');
       }
     };
 
