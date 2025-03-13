@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from '../components/axiosInstance';
 import '../Styles/MyBooks.css'; // Import CSS for MyBooks
-import { AuthContext } from '../context/AuthContext';
+import { AuthContext } from '../context/AuthContext'; // Import AuthContext
+
 
 const getDueInClass = (dueIn) => {
   if (dueIn < 0) return 'overdue';
   if (dueIn === 0) return 'due-today';
-  if (dueIn === 1 || dueIn === 2) return 'due-soon';
+  if (dueIn <= 2) return 'due-soon';
   return '';
 };
 
@@ -21,9 +22,13 @@ const getDueInText = (dueIn) => {
 const calculateDueIn = (dueDate) => {
   const currentDate = new Date();
   const dueDateObj = new Date(dueDate);
+  
+  // Normalize time to prevent inconsistencies
+  currentDate.setHours(0, 0, 0, 0);
+  dueDateObj.setHours(0, 0, 0, 0);
+  
   const timeDiff = dueDateObj - currentDate;
-  const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-  return daysDiff;
+  return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 };
 
 function MyBooks() {
@@ -59,7 +64,28 @@ function MyBooks() {
 
     fetchReservedBooks();
   }, [user, isAuthenticated]);
-
+  const HandleReturn = async (theBook) => {
+    if (isAuthenticated) {
+     
+        const confirmReturn = window.confirm('Are you sure you want to return this book?');
+        if (!confirmReturn) return;
+        try{
+          console.log("Sending return request for:", theBook);
+      const response = await axios.post('/users/return',{
+        email: user.email,
+        theBook: theBook,
+      });
+      if (response.status === 201) {
+        alert(`Book: ${theBook.title} with Publisher ID ${theBook.publisher_id} returned.`);
+        setReservedBooks(prevBooks => prevBooks.filter(book => book._id !== theBook._id));
+      }else {
+        alert(`Error: ${response.data.message}`);
+    }
+    }catch (error) {
+      console.error('Error returning book:', error);
+      alert('Error returning book. Please try again.');
+    }
+  }};
   // if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching books: {error.message}</p>;
 
@@ -94,6 +120,12 @@ function MyBooks() {
                   <p><strong>Publisher:</strong> {book.publisher}</p>
                   <p><strong>Publisher ID:</strong> {book.publisher_id}</p>
                   <p><strong>Description:</strong> {book.description}</p>
+                  <button
+                  className="return-button-search"
+                  onClick={() => HandleReturn(book)}
+                >
+                  Return book
+                </button>
                 </div>
               </div>
             ))}
