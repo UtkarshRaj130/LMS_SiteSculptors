@@ -23,12 +23,11 @@ const calculateDueIn = (dueDate) => {
   const currentDate = new Date();
   const dueDateObj = new Date(dueDate);
   
-  // Normalize time to prevent inconsistencies
-  currentDate.setHours(0, 0, 0, 0);
-  dueDateObj.setHours(0, 0, 0, 0);
   
   const timeDiff = dueDateObj - currentDate;
-  return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+  const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+  return daysDiff;
+  
 };
 
 function MyBooks() {
