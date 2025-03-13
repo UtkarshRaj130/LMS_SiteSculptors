@@ -1,6 +1,8 @@
-import React from 'react';
-import Header from './Header'; // Import Header component
-import '../Styles/MyHistory.css'; // Import CSS for MyHistory
+import React, { useEffect, useState, useContext } from 'react';
+import axios from '../components/axiosInstance';
+import Header from './Header';
+import '../Styles/MyHistory.css';
+import { AuthContext } from '../context/AuthContext';
 
 const sampleBorrowedBooks = [
     {
@@ -33,16 +35,48 @@ const sampleBorrowedBooks = [
     }
     // Add more sample books as needed
 ];
-
 const getDaysLate = (borrowDate, returnDate) => {
     const borrow = new Date(borrowDate);
     const returnD = new Date(returnDate);
     const diffTime = Math.abs(returnD - borrow);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays > 15 ? diffDays - 15 : 0;
-};
-
-function MyHistory() {
+  };
+  
+  function MyHistory() {
+    const [borrowedBooks, setBorrowedBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const { isAuthenticated, user } = useContext(AuthContext);
+  
+    useEffect(() => {
+      if (!isAuthenticated || !user) {
+        setLoading(false);
+        return;
+      }
+  
+      const fetchBorrowingHistory = async () => {
+        try {
+          const email = user.email;
+          const response = await axios.get(`/users/borrowingHistory?email=${email}`);
+          setBorrowedBooks(response.data);
+          setLoading(false);
+        } catch (error) {
+          console.error('Error fetching borrowing history:', error);
+          setError(error);
+          setLoading(false);
+        }
+      };
+  
+      fetchBorrowingHistory();
+    }, [user, isAuthenticated]);
+  
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error fetching borrowing history: {error.message}</p>;
+  
+    if (!isAuthenticated) {
+      return <p className="not-logged-in">Please log in to view your borrowing history.</p>;
+    }
     return (
         <div>
             <Header /> {/* Add Header here */}

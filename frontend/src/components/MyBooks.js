@@ -40,27 +40,53 @@ function MyBooks() {
 
     const fetchReservedBooks = async () => {
       try {
-        const email = user.email;
-        console.log(`Requesting reserved books for email: ${email}`);
-        const response = await axios.get(`/users/reservedBooks?email=${email}`);
-        console.log('Reserved books response:', response.data);
-        const booksWithDueIn = response.data.map(book => ({
-          ...book,
-          dueIn: calculateDueIn(book.dueDate)
-        }));
-        setReservedBooks(booksWithDueIn);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching reserved books:', error);
-        setError(error);
-        setLoading(false);
-      }
-    };
+      const email = user.email;
+      const response = await axios.get(`/users/reservedBooks?email=${email}`);
+      const booksWithDueIn = response.data.map((book) => ({
+        ...book,
+        dueIn: calculateDueIn(book.dueDate),
+      }));
+      setReservedBooks(booksWithDueIn);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching reserved books:', error);
+      setError(error);
+      setLoading(false);
+    }
+  };
 
     fetchReservedBooks();
   }, [user, isAuthenticated]);
 
-  // if (loading) return <p>Loading...</p>;
+  const handleReturnBook = async (bookId) => {
+    console.log('Returning book with ID:', bookId); 
+    if (!isAuthenticated || !user) {
+      alert('Please log in to return a book.');
+      return;
+    }
+
+    const confirmReturn = window.confirm('Are you sure you want to return this book?');
+    if (!confirmReturn) return;
+
+    try {
+      const response = await axios.post('/users/returnBook', {
+        email: user.email,
+        bookId,
+      });
+
+      if (response.status === 200) {
+        alert('Book returned successfully.');
+        // Refresh the reserved books list
+        const updatedBooks = reservedBooks.filter((book) => book._id !== bookId);
+        setReservedBooks(updatedBooks);
+      }
+    } catch (error) {
+      console.error('Error returning book:', error);
+      alert('Error returning book. Please try again.');
+    }
+  };
+
+  if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching books: {error.message}</p>;
 
   if (!isAuthenticated) {
@@ -94,6 +120,12 @@ function MyBooks() {
                   <p><strong>Publisher:</strong> {book.publisher}</p>
                   <p><strong>Publisher ID:</strong> {book.publisher_id}</p>
                   <p><strong>Description:</strong> {book.description}</p>
+                  <button
+                    className="return-button"
+                    onClick={() => handleReturnBook(book._id)}
+                  >
+                    Return Book
+                  </button>
                 </div>
               </div>
             ))}
