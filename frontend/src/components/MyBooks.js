@@ -40,20 +40,22 @@ function MyBooks() {
 
     const fetchReservedBooks = async () => {
       try {
-      const email = user.email;
-      const response = await axios.get(`/users/reservedBooks?email=${email}`);
-      const booksWithDueIn = response.data.map((book) => ({
-        ...book,
-        dueIn: calculateDueIn(book.dueDate),
-      }));
-      setReservedBooks(booksWithDueIn);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error fetching reserved books:', error);
-      setError(error);
-      setLoading(false);
-    }
-  };
+        const email = user.email;
+        console.log(`Requesting reserved books for email: ${email}`);
+        const response = await axios.get(`/users/reservedBooks?email=${email}`);
+        console.log('Reserved books response:', response.data);
+        const booksWithDueIn = response.data.map(book => ({
+          ...book,
+          dueIn: calculateDueIn(book.dueDate)
+        }));
+        setReservedBooks(booksWithDueIn);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching reserved books:', error);
+        setError(error);
+        setLoading(false);
+      }
+    };
 
     fetchReservedBooks();
   }, [user, isAuthenticated]);

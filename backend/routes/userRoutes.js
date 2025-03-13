@@ -57,16 +57,21 @@ router.post(
         const now = new Date();
         const reservingTime = now.toTimeString().split(' ')[0]; // Get HH:MM:SS
         const reservingDate = formatDate(now); // Format date as YYYY-MM-DD
-        const dueDate = formatDate(new Date(now.getTime() + 20 * 24 * 60 * 60 * 1000)); // 20 days ahead
+        const dueDate = formatDate(new Date(now.getTime() + 20 * 24 * 60 * 60 * 1000)); // 20 days ahead\
+        const borrowDate = formatDate(now); // Format date as YYYY-MM-DD
+        const returnDate = formatDate(now); // Format date as YYYY-MM-DD
 
         const bookWithTimestamps = {
           ...book.toObject(),
           reservingTime,
           reservingDate,
           dueDate,
+          borrowDate,
+          returnDate
         };
 
         user.reservedBooks.push(bookWithTimestamps);
+        console.log(bookWithTimestamps);
         book.count -= 1;
         await user.save();
         await book.save();
