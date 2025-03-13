@@ -13,6 +13,7 @@ const bookSchema = new mongoose.Schema({
   publisher_id: { type: Number, required: true },
   reservingTime: { type: String, required: true }, // Added field
   reservingDate: { type: String, required: true }, // Added field
+<<<<<<< HEAD
   duedate: { type: String, required: true },
 =======
   dueDate: { type: String, required: true },
