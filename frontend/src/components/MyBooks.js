@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import axios from '../components/axiosInstance';
+import axios from '../services/axios';
 import '../Styles/MyBooks.css'; // Import CSS for MyBooks
 import { AuthContext } from '../context/AuthContext'; // Import AuthContext
 
@@ -66,26 +66,33 @@ function MyBooks() {
   }, [user, isAuthenticated]);
   const HandleReturn = async (theBook) => {
     if (isAuthenticated) {
-     
-        const confirmReturn = window.confirm('Are you sure you want to return this book?');
-        if (!confirmReturn) return;
-        try{
-          console.log("Sending return request for:", theBook);
-      const response = await axios.post('/users/return',{
-        email: user.email,
-        theBook: theBook,
-      });
-      if (response.status === 201) {
-        alert(`Book: ${theBook.title} with Publisher ID ${theBook.publisher_id} returned.`);
-        setReservedBooks(prevBooks => prevBooks.filter(book => book._id !== theBook._id));
-      }else {
-        alert(`Error: ${response.data.message}`);
-    }
-    }catch (error) {
-      console.error('Error returning book:', error);
-      alert('Error returning book. Please try again.');
-    }
-  }};
+      const confirmReturn = window.confirm('Are you sure you want to return this book?');
+      if (!confirmReturn) return;
+  
+      try {
+        console.log('Sending request to return book:', theBook);
+        console.log('User email:', user.email);
+  
+        const response = await axios.post('/users/return', {
+          email: user.email.toLowerCase(),  // Ensure consistent email format
+          theBook: theBook,
+        });
+  
+        console.log('Return book response:', response.data);
+  
+        if (response.status === 201) {
+          alert(`Book: ${theBook.title} returned successfully!`);
+          setReservedBooks(prevBooks => prevBooks.filter(book => book._id !== theBook._id));
+        } else {
+          alert(`Error: ${response.data.message}`);
+        }
+  
+      } catch (error) {
+        console.error('Error returning book:', error);
+        alert(`Error returning book: ${error.response ? error.response.data.message : 'Unknown error'}`);
+      }
+    }};
+  
   // if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching books: {error.message}</p>;
 
