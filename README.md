@@ -47,3 +47,13 @@ To run the React application you have, follow these steps:
     npm start
     ```
     This will run the `start` script defined in your `package.json` file, which uses `react-scripts` to start the server. The application should open in your default web browser at `http://localhost:3000`.
+
+Steps are same for both "frontend" as well as "backend" folders.
+First create a .env file in the backend folder which should contain the URI of the mongoDB-Atlas databse containing the dataset given in DevShelf@SOI.2024 @IIT-Dh.
+Then you need to run ```npm install``` and ```npm run``` in both the folders to run the backend as well as the frontend.
+
+IMP:
+1. Make sure the frontend is running on port:3000 [Then only the Login with Google feature will work]
+2. Make sure the backend is running on port:5000 [So that the frontend can talk with the backend]
+
+Thank You !
