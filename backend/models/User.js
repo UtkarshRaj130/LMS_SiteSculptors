@@ -14,6 +14,9 @@ const bookSchema = new mongoose.Schema({
   reservingTime: { type: String, required: true }, // Added field
   reservingDate: { type: String, required: true }, // Added field
   duedate: { type: String, required: true },
+=======
+  dueDate: { type: String, required: true },
+>>>>>>> 013a6c55963d0f8890132df3c1a98879b94e035c
   borrowDate: { type: String, required: true }, // Date when the book was borrowed
   returnDate: { type: String, required: true },
 }); // Add _id: false to prevent _id creation for subdocuments
