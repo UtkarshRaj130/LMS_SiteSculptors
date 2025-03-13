@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from '../services/axios';
 import '../Styles/MyBooks.css'; // Import CSS for MyBooks
-import { AuthContext } from '../context/AuthContext'; // Import AuthContext
-
+import { AuthContext } from '../context/AuthContext';
 
 const getDueInClass = (dueIn) => {
   if (dueIn < 0) return 'overdue';
   if (dueIn === 0) return 'due-today';
-  if (dueIn <= 2) return 'due-soon';
+  if (dueIn === 1 || dueIn === 2) return 'due-soon';
   return '';
 };
 
@@ -22,12 +21,9 @@ const getDueInText = (dueIn) => {
 const calculateDueIn = (dueDate) => {
   const currentDate = new Date();
   const dueDateObj = new Date(dueDate);
-  
-  
   const timeDiff = dueDateObj - currentDate;
   const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
   return daysDiff;
-  
 };
 
 function MyBooks() {
@@ -63,6 +59,7 @@ function MyBooks() {
 
     fetchReservedBooks();
   }, [user, isAuthenticated]);
+
   const HandleReturn = async (theBook) => {
     if (isAuthenticated) {
       const confirmReturn = window.confirm('Are you sure you want to return this book?');
@@ -126,12 +123,6 @@ function MyBooks() {
                   <p><strong>Publisher:</strong> {book.publisher}</p>
                   <p><strong>Publisher ID:</strong> {book.publisher_id}</p>
                   <p><strong>Description:</strong> {book.description}</p>
-                  <button
-                  className="return-button-search"
-                  onClick={() => HandleReturn(book)}
-                >
-                  Return book
-                </button>
                 </div>
               </div>
             ))}
