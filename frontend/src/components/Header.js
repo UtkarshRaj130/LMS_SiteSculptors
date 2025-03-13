@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../Styles/Header.css';
 import logo from './images/image.png';
 import { FaSearch, FaBars } from 'react-icons/fa';
-import axios from './axiosInstance';
+import axios from '../services/axios';
 import { GoogleLogin, googleLogout } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode"; // Correct import statement
 import { AuthContext } from '../context/AuthContext'; // Correct import path for AuthContext

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import axios from '../services/axios';
 import Header from './Header'; // Import Header component
 import '../Styles/MyHistory.css'; // Import CSS for MyHistory
 
