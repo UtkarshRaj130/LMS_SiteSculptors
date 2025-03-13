@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import axios from '../services/axios';
+import axios from '../components/axiosInstance';
 import '../Styles/MyBooks.css'; // Import CSS for MyBooks
 import { AuthContext } from '../context/AuthContext'; // Import AuthContext
 

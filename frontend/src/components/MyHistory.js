@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import axios from '../services/axios';
+import axios from '../component/axiosInstance';
 import Header from './Header'; // Import Header component
 import '../Styles/MyHistory.css'; // Import CSS for MyHistory
 import { AuthContext } from '../context/AuthContext';
