@@ -14,8 +14,8 @@ const bookSchema = new mongoose.Schema({
   reservingTime: { type: String, required: true }, // Added field
   reservingDate: { type: String, required: true }, // Added field
   dueDate: { type: String, required: true }, // Added field
-  returningTime: { type: String, required: true }, // Added field
-  returningDate: { type: String, required: true }, // Added field
+  returningTime: { type: String, required: false }, // Added field
+  returningDate: { type: String, required: false }, // Added field
 }); // Add _id: false to prevent _id creation for subdocuments
 
 const userSchema = new mongoose.Schema({
