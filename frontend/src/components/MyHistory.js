@@ -11,7 +11,7 @@ const getDaysLate = (reservingDate, returningDate) => {
     const returnD = new Date(returningDate);
     const diffTime = Math.abs(returnD - borrow);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays > 15 ? diffDays - 15 : 0;
+    return diffDays > 20 ? diffDays - 20 : 0;
 };
 
 function MyHistory() {
