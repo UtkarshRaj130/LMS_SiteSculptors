@@ -53,20 +53,6 @@
     font-weight: bold;
 }
 
-
-.return-button {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .return-button:hover {
-    background-color: #ff4c4c;
-  }
 .due-today {
     color: #D8000C; /* Darker red */
     background-color: #fa8989; /* Light red background */
@@ -86,6 +72,25 @@
     font-weight: bold;
     color: #D8000C; /* Red color */
     margin-top: 50px;
+}
+
+.return-button-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.return-button {
+    background-color: #5c0c89;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+.return-button:hover {
+background-color: #ff4c4c;
 }
 
 @media (max-width: 768px) {
