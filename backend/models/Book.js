@@ -10,7 +10,7 @@ const bookSchema = new mongoose.Schema({
   vendor: { type: String, required: true },
   vendor_id: { type: Number, required: true },
   publisher: { type: String, required: true },
-  publisher_id: { type: Number, required: true }
+  publisher_id: { type: Number, required: true },
 });
 
 const Book = mongoose.model('Book', bookSchema);

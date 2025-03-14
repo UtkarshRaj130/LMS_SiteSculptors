@@ -2,6 +2,8 @@
     padding: 20px;
     text-align: left; /* Align text to the left */
     padding-top: 80px; /* Ensure content is visible below the fixed header */
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .my-history h2 {
@@ -20,10 +22,10 @@
 .history-card {
     width: calc(33.333% - 20px); /* Three cards per row, accounting for gaps */
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    background-color: #f9f9f9;
 }
 
 .history-card-header {
@@ -31,12 +33,13 @@
     color: #fff;
     padding: 10px;
     border-radius: 5px 5px 0 0;
+    margin-bottom: 10px;
 }
 
 .book-title-myHistory {
     font-size: 20px;
     margin: 0;
-    color: white;
+    color: #333;
 }
 
 .history-card-body {
@@ -52,10 +55,19 @@
 }
 
 .late-text {
-    color: red;
+    color: #ff6b6b;
     font-weight: bold;
 }
-
+.not-logged-in {
+    text-align: center;
+    margin-top: 20px;
+    color: #ff6b6b;
+  }
+.history-card.late-return {
+    border-color: #ff6b6b;
+    background-color: #ffe3e3;
+  }
+  
 @media (max-width: 768px) {
     .history-card {
         width: calc(50% - 20px); /* Two cards per row on smaller screens */
@@ -67,3 +79,9 @@
         width: calc(100% - 20px); /* One card per row on very small screens */
     }
 }
+
+  
+
+
+
+  
