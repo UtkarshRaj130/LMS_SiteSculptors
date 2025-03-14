@@ -53,20 +53,6 @@
     font-weight: bold;
 }
 
-
-.return-button {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .return-button:hover {
-    background-color: #ff4c4c;
-  }
 .due-today {
     color: #D8000C; /* Darker red */
     background-color: #fa8989; /* Light red background */
@@ -86,6 +72,34 @@
     font-weight: bold;
     color: #D8000C; /* Red color */
     margin-top: 50px;
+}
+
+.return-button-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.return-button {
+    display: flex; /* Use flex to center text inside button */
+    align-items: center;
+    justify-content: center;
+    width: 10%; /* Set width for button as a percentage of the container */
+    min-width: 150px; /* Ensure button has a minimum width */
+    height: auto; /* Set height to span both lines */
+    margin-left: 10px; /* Add margin to separate from book details */
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-size: 16px;
+    color: #fff;
+    background-color: #6c1b85ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center; /* Center text horizontally */
+  }
+  
+.return-button:hover {
+    background-color: #a86007;
 }
 
 @media (max-width: 768px) {
