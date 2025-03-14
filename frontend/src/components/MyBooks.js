@@ -129,7 +129,7 @@ function MyBooks() {
                   <p><strong>Description:</strong> {book.description}</p>
                   <div className="return-button-div">
                     <button className="return-button" onClick={() => HandleReturn(book)}>
-                    Return book
+                      RETURN
                     </button>
                   </div>
                 </div>

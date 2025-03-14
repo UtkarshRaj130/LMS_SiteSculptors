@@ -80,17 +80,26 @@
     align-items: center;
 }
 .return-button {
-    background-color: #5c0c89;
-    color: white;
+    display: flex; /* Use flex to center text inside button */
+    align-items: center;
+    justify-content: center;
+    width: 10%; /* Set width for button as a percentage of the container */
+    min-width: 150px; /* Ensure button has a minimum width */
+    height: auto; /* Set height to span both lines */
+    margin-left: 10px; /* Add margin to separate from book details */
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-size: 16px;
+    color: #fff;
+    background-color: #6c1b85ff;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    text-align: center; /* Center text horizontally */
   }
   
 .return-button:hover {
-background-color: #ff4c4c;
+    background-color: #a86007;
 }
 
 @media (max-width: 768px) {
