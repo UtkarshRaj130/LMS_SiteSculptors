@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import Header from './Header'; // Import Header component
 import '../Styles/SearchResults.css'; // Import CSS for SearchResults
 import { AuthContext } from '../context/AuthContext'; // Import AuthContext
-import axios from '../components/axiosInstance'; // Update import path
+import axios from '../services/axiosInstance';
 
 function SearchResults() {
   const location = useLocation();

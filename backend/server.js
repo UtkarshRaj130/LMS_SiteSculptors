@@ -7,13 +7,20 @@ import authRoutes from './routes/authRoutes.js'; // Update this path
 import bookRoutes from './routes/bookRoutes.js'; // Update this path
 import userRoutes from './routes/userRoutes.js'; // Update this path
 
+
+// Allow requests from your frontend
+
+
 dotenv.config();
 
 const app = express();
+app.use(cors({
+  origin: 'http://localhost:3000', // Change this to your frontend's URL
+  credentials: true
+}));
 
 connectDB();
 
-app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);

@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import '../Styles/BookDetails.css';
 import { AuthContext } from '../context/AuthContext'; // Import AuthContext
-import axios from '../components/axiosInstance'; // Update import path
+import axios from '../services/axiosInstance'; // Update import path
 
 function BookDetails() {
     const location = useLocation();
