@@ -15,7 +15,8 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:3000', // Change this to your frontend's URL
+  // origin: 'http://localhost:3000', // Change this to your frontend's URL
+  origin: 'https://lms-sitesculptors-frontend.onrender.com',
   credentials: true
 }));
 
