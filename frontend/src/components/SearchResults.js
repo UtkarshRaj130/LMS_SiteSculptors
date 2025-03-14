@@ -30,17 +30,17 @@ function SearchResults() {
 
   const HandleReserve = async (theBook) => {
     if (isAuthenticated) {
-      // try {
-      //   const response = await axios.get(`/users/reservedBooksCount?email=${user.email}`);
-      //   if (response.data.count >= 4) {
-      //     alert('You can only reserve up to 4 books at a time.');
-      //     return;
-      //   }
-      // } catch (error) {
-      //   console.error('Error checking reserved book count:', error);
-      //   alert('Error checking reserved book count.');
-      //   return;
-      // }
+      try {
+        const response = await axios.get(`/users/reservedBooksCount?email=${user.email}`);
+        if (response.data.count >= 4) {
+          alert('You can only reserve up to 4 books at a time.');
+          return;
+        }
+      } catch (error) {
+        console.error('Error checking reserved book count:', error);
+        alert('Error checking reserved book count.');
+        return;
+      }
       
       const userConfirmed = window.confirm(`Are you sure you want to reserve the book: ${theBook.title}`);
       if (userConfirmed) {

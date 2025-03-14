@@ -127,11 +127,12 @@ function MyBooks() {
                   <p><strong>Publisher:</strong> {book.publisher}</p>
                   <p><strong>Publisher ID:</strong> {book.publisher_id}</p>
                   <p><strong>Description:</strong> {book.description}</p>
-                  <div className="return-button-div">
-                    <button className="return-button" onClick={() => HandleReturn(book)}>
-                      RETURN
-                    </button>
-                  </div>
+                  <button
+                  className="return-button-search"
+                  onClick={() => HandleReturn(book)}
+                >
+                  Return book
+                </button>
                 </div>
               </div>
             ))}
