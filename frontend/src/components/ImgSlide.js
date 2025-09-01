@@ -12,12 +12,12 @@ function ImgSlide() {
       const currentTime = new Date().getHours();
       const currentDay = new Date().getDay();
 
-      if (currentDay !== 0 && currentDay !== 6 && currentTime >= 9 && currentTime <= 18) {
+      if (currentDay !== 0 && currentDay !== 6 && currentTime >= 9 && currentTime < 18) {
         setLibraryStatus('Library is currently open (open from 9 am to 6 pm)');
       } else if (currentDay === 0 || currentDay === 6) {
         setLibraryStatus('Library is closed on Weekends');
-      } else if (!(currentTime >= 9 && currentTime <= 18)) {
-        setLibraryStatus('Library is currently closed');
+      } else if (!(currentTime < 9 && currentTime >= 18)) {
+        setLibraryStatus('Library is currently closed (open from 9 am to 6 pm)');
       }
     };
 
